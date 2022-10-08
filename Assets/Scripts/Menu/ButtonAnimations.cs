@@ -28,7 +28,7 @@ public class ButtonAnimations : MonoBehaviour
     protected void EnlargeButton()
     {
         Vector2 targetSize = originalSize * enlargeScaleFactor;
-        StartCoroutine(ResizeButton(duration, targetSize)); ;
+        StartCoroutine(ResizeButton(duration, targetSize)); 
     }
 
     protected void ResetButtonSize()
