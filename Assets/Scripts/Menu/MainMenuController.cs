@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class MainMenuController : Menu
 {
-    // [SerializeField] private Button startButton;
-    // [SerializeField] private Button quitButton;
-
+    public float loadGameDelay;
     public override void StartNewGame()
     {
-        // load scene
-        SceneManager.LoadScene(GameManager.MainSceneIndex, LoadSceneMode.Single);
+        StartCoroutine(WaitAndLoadScene(loadGameDelay));
+    }
 
+    IEnumerator WaitAndLoadScene(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        SceneManager.LoadScene(GameManager.MainSceneIndex, LoadSceneMode.Single);
     }
 
     public override void QuitGame()

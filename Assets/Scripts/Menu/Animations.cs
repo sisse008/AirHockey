@@ -1,42 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class ButtonAnimations : MonoBehaviour
+
+public class Animations : MonoBehaviour
 {
     public Color selectedColor;
     public float duration;
     public float enlargeScaleFactor;
 
 
-    Button button;
     RectTransform rt;
     Vector2 originalSize;
 
     private void Awake()
     {
-        button = GetComponent<Button>();
-        rt = button.GetComponent<RectTransform>();
+      
+        rt = GetComponent<RectTransform>();
     }
 
     private void Start()
     {
         originalSize = rt.sizeDelta;
     }
-    protected void EnlargeButton()
+    protected void Enlarge()
     {
         Vector2 targetSize = originalSize * enlargeScaleFactor;
-        StartCoroutine(ResizeButton(duration, targetSize)); 
+        StartCoroutine(Resize(duration, targetSize)); 
     }
 
-    protected void ResetButtonSize()
+    protected void ResetSize()
     {
-        StartCoroutine(ResizeButton(duration, originalSize)); ;
+        StartCoroutine(Resize(duration, originalSize)); ;
     }
 
-    IEnumerator ResizeButton(float duration, Vector2 targetSize)
+    IEnumerator Resize(float duration, Vector2 targetSize)
     {
         float time = 0;
         Vector2 currentsize = rt.sizeDelta;
@@ -57,7 +55,7 @@ public class ButtonAnimations : MonoBehaviour
     IEnumerator ChangeColor(float duration)
     {
         float currentFade = 0;
-        Material m = button.gameObject.GetComponent<MeshRenderer>().material;
+        Material m = rt.gameObject.GetComponent<MeshRenderer>().material;
         Color currentColor = m.color;
         while (currentFade < duration)
         {

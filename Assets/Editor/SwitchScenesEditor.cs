@@ -16,11 +16,16 @@ public class SwitchScenesEditor
     {
         SwitchSceneInEditor(0);
     }
-
-    [MenuItem("MyUtilities/Change Scene/Main Scene")]
-    public static void SwitchToMainScene()
+    [MenuItem("MyUtilities/Change Scene/SelectionScene")]
+    public static void SwitchToSelectionScene()
     {
         SwitchSceneInEditor(1);
+    }
+
+    [MenuItem("MyUtilities/Change Scene/Game Scene")]
+    public static void SwitchToMainScene()
+    {
+        SwitchSceneInEditor(2);
     }
 
     private static bool IsCurrectKeysToSwitchScenesInEditor()
