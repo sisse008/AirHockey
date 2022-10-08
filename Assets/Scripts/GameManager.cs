@@ -1,29 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance = null;
 
-    public PlayerController player1;
-    public PlayerController player2;
-    public PuckController puck;
-
-    private void OnEnable()
+    public static GameManager Instance
     {
-        player1.myGoal.OnScoredEvent += ResetGamePositions;
-        player2.myGoal.OnScoredEvent += ResetGamePositions;
-    }
-    private void OnDisable()
-    {
-        player1.myGoal.OnScoredEvent -= ResetGamePositions;
-        player2.myGoal.OnScoredEvent -= ResetGamePositions;
+        get
+        {
+            if (instance)
+                return instance;
+            instance = FindObjectOfType<GameManager>();
+            return instance;
+        }
     }
 
-    private void ResetGamePositions()
+
+    public const int MainSceneIndex = 1;
+
+    private void Awake()
     {
-        player1.ResetPosition();
-        player2.ResetPosition();
-        puck.ResetPosition();
+        if(instance && instance != this)
+            Destroy(gameObject);
+        
+        DontDestroyOnLoad(gameObject);
     }
 }
