@@ -25,6 +25,8 @@ public abstract class Movable : MonoBehaviour
 
     public virtual void ResetPosition()
     {
+        if (originalPosition == null)
+            return;
         transform.position = originalPosition.position;
     }
 }

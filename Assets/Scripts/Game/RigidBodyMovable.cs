@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody))]
 public class RigidBodyMovable : Movable
 {
-    protected Rigidbody2D rb;
 
-    private void Awake()
+    Rigidbody rb;
+    protected void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
+
     protected override void Move(float horizontal_axis, float vertical_axis)
     {
-        Vector2 direction = new Vector3(horizontal_axis, vertical_axis).normalized;
+        Vector3 direction = new Vector3(horizontal_axis, 0f, vertical_axis).normalized;
 
-        rb.MovePosition(rb.position + direction*speed*Time.deltaTime);
+        // rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        rb.AddForce(direction * speed);
     }
 
     public override void ResetPosition()
     {
         transform.position = originalPosition.position;
-        rb.velocity = Vector2.zero;
+        rb.velocity = Vector3.zero;
     }
 }
