@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class ButtonAnimations : MonoBehaviour
 {
     public Color selectedColor;
@@ -12,22 +13,34 @@ public class ButtonAnimations : MonoBehaviour
 
     Button button;
     RectTransform rt;
+    Vector2 originalSize;
 
     private void Awake()
     {
         button = GetComponent<Button>();
         rt = button.GetComponent<RectTransform>();
     }
+
+    private void Start()
+    {
+        originalSize = rt.sizeDelta;
+    }
     protected void EnlargeButton()
     {
-        StartCoroutine(EnlargeButton(duration)); ;
+        Vector2 targetSize = originalSize * enlargeScaleFactor;
+        StartCoroutine(ResizeButton(duration, targetSize)); ;
     }
 
-    IEnumerator EnlargeButton(float duration)
+    protected void ResetButtonSize()
+    {
+        StartCoroutine(ResizeButton(duration, originalSize)); ;
+    }
+
+    IEnumerator ResizeButton(float duration, Vector2 targetSize)
     {
         float time = 0;
         Vector2 currentsize = rt.sizeDelta;
-        Vector2 targetSize = currentsize + currentsize * enlargeScaleFactor;
+       
         while (time < duration)
         {
             time += Time.deltaTime;

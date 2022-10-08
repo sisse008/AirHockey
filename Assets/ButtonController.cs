@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Button))]
-public class ButtonController : ButtonAnimations, IAnimatableButton
+public class ButtonController : ButtonAnimations, IAnimatableButton, IPointerEnterHandler, IPointerExitHandler
 {
-    Button button;
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-    }
-
-    public void OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         PlayHoverAnimation();
     }
-    public void OnPointerDown(UnityEngine.EventSystems.PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         PlaySelectedAnimation();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ResetButtonSize();
     }
 
     public void PlaySelectedAnimation()

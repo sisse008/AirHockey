@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 81606529}
   - component: {fileID: 81606528}
   - component: {fileID: 81606527}
+  - component: {fileID: 81606530}
   m_Layer: 5
   m_Name: Button-play
   m_TagString: Untagged
@@ -256,6 +257,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81606525}
   m_CullTransparentMesh: 1
+--- !u!114 &81606530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81606525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b5e14ca65987246b49faf65a23597b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.2
+  enlargeScaleFactor: 1.2
 --- !u!1 &128569073
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -560,6 +576,7 @@ GameObject:
   - component: {fileID: 204295736}
   - component: {fileID: 204295735}
   - component: {fileID: 204295734}
+  - component: {fileID: 204295737}
   m_Layer: 5
   m_Name: Button-quit
   m_TagString: Untagged
@@ -681,6 +698,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204295732}
   m_CullTransparentMesh: 1
+--- !u!114 &204295737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204295732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b5e14ca65987246b49faf65a23597b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.2
+  enlargeScaleFactor: 1.2
 --- !u!1 &265241600
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
