@@ -17,16 +17,14 @@ public class SelectionPathController : MonoBehaviour
 
     private List<Vector3> positions;
     
-
     private float DegreeDelta => 360f/(float)selectionItemsData.NumberOfItems;
 
     bool rotating = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        SetItemPath();
+        InitItemsPath();
         ResetPosition();
     }
 
@@ -35,14 +33,14 @@ public class SelectionPathController : MonoBehaviour
         Vector3 camPos = selectionCamera.transform.position;
         transform.position = new Vector3(camPos.x, camPos.y- 45f, camPos.z + radius + 90f);
     }
-    private void SetItemPath()
+    private void InitItemsPath()
     {
         int numOfItems = selectionItemsData.NumberOfItems;
         positions = GetItemsPositionsOnCyclicPath(numOfItems);
         
         for(int i = 0; i< numOfItems; i++)
         {
-            Instantiate(selectionItemsData.GetItem(i), positions[i], Quaternion.identity, transform);
+            Instantiate(selectionItemsData.GetItem(i), positions[i], selectionItemsData.GetItem(i).transform.rotation, transform);
         }
     }
 
