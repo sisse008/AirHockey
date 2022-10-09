@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class SelectionData : ScriptableObject
 {
    [SerializeField]
-    private List<GameObject> SelectionItems;
+    private List<SelectionItem> SelectionItems;
 
     public int NumberOfItems => SelectionItems.Count;
 
-    public List<GameObject> Items => new List<GameObject>(SelectionItems);
+    public List<SelectionItem> Items => new List<SelectionItem>(SelectionItems);
 
     public GameObject GetItem(int index)
     {
         if (index < NumberOfItems)
-            return SelectionItems[index];
+            return SelectionItems[index].gameObject;
         return null;
     }
 
