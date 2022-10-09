@@ -14,18 +14,18 @@ public class SwitchScenesEditor
     [MenuItem("MyUtilities/Change Scene/Menu Scene")]
     public static void SwitchToMenuScene()
     {
-        SwitchSceneInEditor(0);
+        SwitchSceneEditor(0);
     }
     [MenuItem("MyUtilities/Change Scene/SelectionScene")]
     public static void SwitchToSelectionScene()
     {
-        SwitchSceneInEditor(1);
+        SwitchSceneEditor(1);
     }
 
     [MenuItem("MyUtilities/Change Scene/Game Scene")]
     public static void SwitchToMainScene()
     {
-        SwitchSceneInEditor(2);
+        SwitchSceneEditor(2);
     }
 
     private static bool IsCurrectKeysToSwitchScenesInEditor()
@@ -37,7 +37,7 @@ public class SwitchScenesEditor
     }
 
 
-    static void SwitchSceneInEditor(int num)
+    static void SwitchSceneEditor(int num)
     {
         if (num >= SceneManager.sceneCountInBuildSettings)
             return;

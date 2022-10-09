@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public const int MainSceneIndex = 1;
+    public const int MainSceneIndex = 2;
+    public const int SlectionSceneIndex = 1;
+    public const int MenuSceneIndex = 0;
 
     private void Awake()
     {

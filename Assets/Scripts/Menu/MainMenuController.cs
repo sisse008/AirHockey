@@ -4,22 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuController : Menu
+public class MainMenuController : MonoBehaviour
 {
-    public float loadGameDelay;
-    public override void StartNewGame()
+    public float loadSceneDelay;
+    public void StartNewGame()
     {
-        StartCoroutine(WaitAndLoadScene(loadGameDelay));
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, GameManager.MainSceneIndex));
     }
 
-    IEnumerator WaitAndLoadScene(float secs)
+    public void LoadSelectionScene()
+    {
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, GameManager.SlectionSceneIndex));
+    }
+
+    IEnumerator WaitAndLoadScene(float secs, int sceneIndex)
     {
         yield return new WaitForSeconds(secs);
-        SceneManager.LoadScene(GameManager.MainSceneIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
 
-    public override void QuitGame()
+    public void QuitGame()
     {
-       base.QuitGame();
+        Application.Quit();
     }
 }

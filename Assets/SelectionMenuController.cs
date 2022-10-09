@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
-public class SelectionPathsTypeSwitch : MonoBehaviour
+public class SelectionMenuController : MonoBehaviour
 {
     public SelectionPathController tableSelectionPath;
     public SelectionPathController padsSelectionPath;
@@ -35,5 +36,10 @@ public class SelectionPathsTypeSwitch : MonoBehaviour
         padsSelectionPath.gameObject.SetActive(true);
 
         rotatePath = padsSelectionPath.NextItem;
+    }
+
+    public void ExitSelectionScene()
+    {
+        SceneManager.LoadScene(GameManager.MenuSceneIndex, LoadSceneMode.Single);
     }
 }
