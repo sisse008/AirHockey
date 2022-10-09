@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectionPathController : MonoBehaviour
 {
+    public Camera selectionCamera;
     [SerializeField]
     private float radius;
 
@@ -11,7 +12,7 @@ public class SelectionPathController : MonoBehaviour
     private SelectionData selectionItemsData;
 
     [SerializeField] 
-    float rotationSpeed;
+    float switchTimeInSeconds;
 
 
     private List<Vector3> positions;
@@ -19,17 +20,20 @@ public class SelectionPathController : MonoBehaviour
 
     private float DegreeDelta => 360f/(float)selectionItemsData.NumberOfItems;
 
+    bool rotating = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetItemPath();
-        SetPosition();
+        ResetPosition();
     }
 
-    void SetPosition()
+    void ResetPosition()
     {
-        
+        Vector3 camPos = selectionCamera.transform.position;
+        transform.position = new Vector3(camPos.x, camPos.y- 45f, camPos.z + radius + 90f);
     }
     private void SetItemPath()
     {
@@ -44,8 +48,25 @@ public class SelectionPathController : MonoBehaviour
 
     public void NextItem(bool clockwise)
     {
-        //TODO: rotate transform by DegreeDelta
-        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+        StartCoroutine(Rotate(clockwise));
+    }
+
+    IEnumerator Rotate(bool clockwise)
+    {
+        if (rotating)
+            yield break;
+        rotating = true;
+        float time = 0;
+        Vector3 current = transform.eulerAngles;
+        Vector3 newRotation = new Vector3(current.x, clockwise? current.y+DegreeDelta : current.y - DegreeDelta, current.z);
+        while (time < switchTimeInSeconds)
+        {
+            time += Time.deltaTime;
+            transform.eulerAngles = Vector3.Lerp(current, newRotation, time/switchTimeInSeconds);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.1f);
+        rotating = false;
     }
 
     private List<Vector3> GetItemsPositionsOnCyclicPath(int numOfItems)
