@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3363948}
   - component: {fileID: 2301612}
   - component: {fileID: 731374237259079942}
+  - component: {fileID: -766136731163555759}
   m_Layer: 0
   m_Name: RedPad 1
   m_TagString: Untagged
@@ -94,3 +95,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe88f5eee0f8004e92bdfc960e3a3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-766136731163555759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.3556967, y: 4.3113623, z: 2.9376087}
+  m_Center: {x: -0.000000021886894, y: -0.000000031661727, z: 1.4688042}
