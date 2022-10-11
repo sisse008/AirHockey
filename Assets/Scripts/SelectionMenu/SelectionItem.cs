@@ -8,10 +8,11 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
 {
     public static UnityAction<SelectionItem> OnItemSelected;
     public GameObject gameItem;
+    public int id;
 
     public bool IsEqual(SelectionItem item)
     {
-        return item.gameObject == gameObject;
+        return item.id == id;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

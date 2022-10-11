@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe88f5eee0f8004e92bdfc960e3a3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameItem: {fileID: 115672, guid: 38f0603874bdf3b44ada865cd510a9ec, type: 3}
+  id: 6
 --- !u!65 &-9207740949706256341
 BoxCollider:
   m_ObjectHideFlags: 0

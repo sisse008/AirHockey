@@ -9,11 +9,6 @@ public class SelectionData : ScriptableObject
 {
 
     public List<SelectionItem> SelectionItems;
-
-
-    [SerializeField]
-    private SelectionItem selectedItem;
-
     public int NumberOfItems => SelectionItems.Count;
 
     public List<SelectionItem> Items => new List<SelectionItem>(SelectionItems);
@@ -21,7 +16,9 @@ public class SelectionData : ScriptableObject
 
     public bool Contains(SelectionItem item)
     {
-       //TODO;
+        foreach (SelectionItem _item in SelectionItems)
+            if (item.id == _item.id)
+                return true;
         return false;
     }
     public SelectionItem GetItem(int index)
@@ -31,16 +28,5 @@ public class SelectionData : ScriptableObject
         return null;
     }
 
-    public void SetSelectedItem(SelectionItem selectedItem)
-    {
-        this.selectedItem = selectedItem;
-    }
-
-    public SelectionItem GetSelectedItem()
-    {
-        if (selectedItem)
-            return selectedItem;
-        return SelectionItems[0];
-    }
 
 }

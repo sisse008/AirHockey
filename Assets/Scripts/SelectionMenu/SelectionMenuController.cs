@@ -30,9 +30,9 @@ public class SelectionMenuController : MonoBehaviour
         SelectionItem.OnItemSelected += (item) =>
         {
             if (TableSelectionItemsData.Contains(item))
-                TableSelectionItemsData.SetSelectedItem(item);
+                GameManager.Instance.SelectedTable(item.gameItem);
             else if (PudsSelectionItemsData.Contains(item))
-                PudsSelectionItemsData.SetSelectedItem(item);
+                GameManager.Instance.SelectedPad(item.gameItem);
         };
     }
     private void Start()
