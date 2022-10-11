@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SelectionItem : MonoBehaviour
+public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        Highlight();
     }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+       
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UnHighlight();
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
