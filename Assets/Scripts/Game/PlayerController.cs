@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-
-[RequireComponent(typeof(Movable))]
+[RequireComponent(typeof(RigidBodyMovable))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -17,24 +18,39 @@ public class PlayerController : MonoBehaviour
     private int score;
     public int Score => score;
 
+    public UnityAction OnScore;
 
-    private void Awake()
+
+    public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, Movable movableRigidBody)
     {
-        movableRigidBody = GetComponent<Movable>();
-    }
-    private void OnEnable()
-    {
-        myGoal.OnScoredEvent += () => 
+        this.myGoal = myGoal;
+        this.myScoreboard = myScoreboard;
+        this.movableRigidBody = movableRigidBody;
+
+
+        myGoal.OnScoredEvent += () =>
         {
             score++;
-            if(myScoreboard)
+            if (myScoreboard)
                 myScoreboard.UpdateScoreBoard(score);
+
+            OnScore?.Invoke();
         };
+
+    }
+
+    private void OnDisable()
+    {
+      /*  foreach (Delegate d in OnScore.GetInvocationList())
+        {
+            OnScore -= (UnityAction)d;
+        }
+      */
     }
 
     public void ResetPosition()
     {
-        
+        movableRigidBody.ResetPosition();
     }
 
 

@@ -8,22 +8,79 @@ public class GameController : MonoBehaviour
     public PlayerController player1;
     public PlayerController player2;
     public PuckController puck;
+    public GameObject table;
 
-    private void OnEnable()
+    public GoalController goal1;
+    public GoalController goal2;
+
+    public ScoreboardController scoreboard1;
+    public ScoreboardController scoreboard2;
+
+
+    public Transform player1InitPosition;
+    public Transform player2InitPosition;
+    public Transform puckInitPosition;
+
+
+    private void Start()
     {
-        player1.myGoal.OnScoredEvent += ResetGamePositions;
-        player2.myGoal.OnScoredEvent += ResetGamePositions;
+        NewGame();
     }
-    private void OnDisable()
+
+
+    PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
+        RuntimeInputHelper.InputType.InputTypeEnum inputType)
     {
-        player1.myGoal.OnScoredEvent -= ResetGamePositions;
-        player2.myGoal.OnScoredEvent -= ResetGamePositions;
+
+        Quaternion q = Quaternion.identity;
+        q.eulerAngles = new Vector3(270, 0, 0);
+
+        GameObject player_go = Instantiate(pad, initPositionTransform.position, q);
+        PlayerController player = player_go.GetComponent<PlayerController>();
+        if (player == null)
+            player = player_go.AddComponent<PlayerController>();
+
+        RigidBodyMovable rb = player_go.GetComponent<RigidBodyMovable>();
+        if (rb == null)
+            rb = player_go.AddComponent<RigidBodyMovable>();
+        rb.originalPosition = initPositionTransform;
+        rb.inputType = inputType;
+
+
+        player.InitializePlayer(goal, scoreboard, rb);
+        player.OnScore += () => ResetGamePositions();
+
+        return player;
+    }
+    void NewGame()
+    {
+        if (player1 == null)
+        {
+            player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+            RuntimeInputHelper.InputType.InputTypeEnum.Arrows);
+
+        }
+        if (player2 == null)
+        {
+            player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+          RuntimeInputHelper.InputType.InputTypeEnum.ASWD);
+
+        }
+
+        if (table == null)
+        {
+            Quaternion q = Quaternion.identity;
+            q.eulerAngles = new Vector3(0,90,0);
+            table = Instantiate(GameManager.Instance.hockeyTable, Vector3.zero, q);
+        }
+        ResetGamePositions();
     }
 
     private void ResetGamePositions()
     {
         player1.ResetPosition();
         player2.ResetPosition();
-        puck.ResetPosition();
+        puck.transform.position = puckInitPosition.position;
+        puck.Stop();
     }
 }

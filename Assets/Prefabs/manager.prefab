@@ -56,3 +56,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61ad46f800261b45a60f307d27d592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hockeyTable: {fileID: 139860, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
+  pad1: {fileID: 166526, guid: 28e55cfdc1bf26143b22a0fc5c541f4c, type: 3}
+  pad2: {fileID: 115470, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}

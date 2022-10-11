@@ -19,9 +19,8 @@ public class RigidBodyMovable2D : Movable
         rb.MovePosition(rb.position + direction*speed*Time.deltaTime);
     }
 
-    public override void ResetPosition()
+    public void Stop()
     {
-        transform.position = originalPosition.position;
         rb.velocity = Vector2.zero;
     }
 }

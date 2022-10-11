@@ -7,7 +7,7 @@ public abstract class Movable : MonoBehaviour
 
     public Transform originalPosition;
    
-    public float speed = 100f;
+    public float speed = 8000f;
     public RuntimeInputHelper.InputType.InputTypeEnum inputType;
   
     private void Start()

@@ -7,10 +7,14 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
-    [SerializeField]
-    private GameObject hockeyTable;
-    [SerializeField]
-    private GameObject pad;
+    public GameObject hockeyTable;
+
+    public GameObject pad1;
+ 
+    public GameObject pad2;
+
+
+
 
     public static GameManager Instance
     {
@@ -34,14 +38,5 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(gameObject);
-    }
-
-    public void SelectedTable(GameObject table)
-    {
-        hockeyTable = table;
-    }
-    public void SelectedPad(GameObject pad)
-    {
-        this.pad = pad;
     }
 }
