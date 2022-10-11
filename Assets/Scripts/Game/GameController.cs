@@ -74,6 +74,8 @@ public class GameController : MonoBehaviour
             table = Instantiate(GameManager.Instance.hockeyTable, Vector3.zero, q);
         }
         ResetGamePositions();
+        scoreboard1.UpdateScoreBoard(0);
+        scoreboard2.UpdateScoreBoard(0);
     }
 
     public void ResetGamePositions()
