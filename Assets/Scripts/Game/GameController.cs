@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
         ResetGamePositions();
     }
 
-    private void ResetGamePositions()
+    public void ResetGamePositions()
     {
         player1.ResetPosition();
         player2.ResetPosition();
