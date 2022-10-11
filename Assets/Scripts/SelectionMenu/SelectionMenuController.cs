@@ -7,14 +7,39 @@ using UnityEngine.SceneManagement;
 
 public class SelectionMenuController : MonoBehaviour
 {
-    public SelectionPathController tableSelectionPath;
-    public SelectionPathController padsSelectionPath;
+    public SelectionPath tableSelectionPath;
+    public SelectionPath padsSelectionPath;
+
+    public static Camera selectionCamera;
+
+
+    public SelectionData TableSelectionItemsData;
+    public SelectionData PudsSelectionItemsData;
+
 
     private UnityAction<bool> rotatePath;
 
 
+    private void Awake()
+    {
+        selectionCamera = Camera.main;
+    }
+
+    private void OnEnable()
+    {
+        SelectionItem.OnItemSelected += (item) =>
+        {
+            if (TableSelectionItemsData.Contains(item))
+                TableSelectionItemsData.SetSelectedItem(item);
+            else if (PudsSelectionItemsData.Contains(item))
+                PudsSelectionItemsData.SetSelectedItem(item);
+        };
+    }
     private void Start()
     {
+        tableSelectionPath.Init(TableSelectionItemsData.SelectionItems);
+        padsSelectionPath.Init(PudsSelectionItemsData.SelectionItems);
+
         ActivateTableSelectionPath();
     }
 

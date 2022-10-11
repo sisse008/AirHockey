@@ -2,45 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionPathController : MonoBehaviour
+public class SelectionPath : MonoBehaviour
 {
-    public Camera selectionCamera;
+   
     [SerializeField]
     private float radius;
-
-    [SerializeField]
-    private SelectionData selectionItemsData;
 
     [SerializeField] 
     float switchTimeInSeconds;
 
+ 
 
     private List<Vector3> positions;
-    
-    private float DegreeDelta => 360f/(float)selectionItemsData.NumberOfItems;
+
+    private int numOfItems;
+    private float DegreeDelta => 360f/(float)numOfItems;
 
     bool rotating = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Init(List<SelectionItem> items)
     {
-        InitItemsPath();
+        numOfItems = items.Count;
+        positions = GetItemsPositionsOnCyclicPath();
+        InstantiateItems(items);
         ResetPosition();
     }
 
     void ResetPosition()
     {
-        Vector3 camPos = selectionCamera.transform.position;
+        Vector3 camPos = SelectionMenuController.selectionCamera.transform.position;
         transform.position = new Vector3(camPos.x, camPos.y- 45f, camPos.z + radius + 90f);
     }
-    private void InitItemsPath()
+
+    void InstantiateItems(List<SelectionItem> items)
     {
-        int numOfItems = selectionItemsData.NumberOfItems;
-        positions = GetItemsPositionsOnCyclicPath(numOfItems);
-        
-        for(int i = 0; i< numOfItems; i++)
+        for (int i = 0; i < numOfItems; i++)
         {
-            Instantiate(selectionItemsData.GetItem(i), positions[i], selectionItemsData.GetItem(i).transform.rotation, transform);
+            SelectionItem item = Instantiate(items[i], positions[i], items[i].transform.rotation, transform);
         }
     }
 
@@ -67,7 +65,7 @@ public class SelectionPathController : MonoBehaviour
         rotating = false;
     }
 
-    private List<Vector3> GetItemsPositionsOnCyclicPath(int numOfItems)
+    private List<Vector3> GetItemsPositionsOnCyclicPath()
     {
         List<Vector3> _positions = new List<Vector3>();
       

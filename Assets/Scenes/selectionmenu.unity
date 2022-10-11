@@ -152,9 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bd93d70ad47f46b823bb865ef95e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCamera: {fileID: 601737269}
   radius: 300
-  selectionItemsData: {fileID: 11400000, guid: 974b19af534c7504098d4d6ffe5deee7, type: 2}
   switchTimeInSeconds: 0.5
 --- !u!4 &155410347
 Transform:
@@ -349,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableSelectionPath: {fileID: 155410346}
   padsSelectionPath: {fileID: 865153810}
+  TableSelectionItemsData: {fileID: 11400000, guid: 974b19af534c7504098d4d6ffe5deee7, type: 2}
+  PudsSelectionItemsData: {fileID: 11400000, guid: b3b32d2443a6fbd48a19fe245bff58ef, type: 2}
 --- !u!4 &390192024
 Transform:
   m_ObjectHideFlags: 0
@@ -530,10 +530,10 @@ RectTransform:
   m_Father: {fileID: 2014106801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102.146, y: -38.7555}
-  m_SizeDelta: {x: 204.292, y: 77.511}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530142515
 MonoBehaviour:
@@ -1035,10 +1035,10 @@ RectTransform:
   m_Father: {fileID: 2014106801}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 356.43802, y: -38.7555}
-  m_SizeDelta: {x: 204.292, y: 77.511}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650040519
 MonoBehaviour:
@@ -1445,9 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bd93d70ad47f46b823bb865ef95e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionCamera: {fileID: 601737269}
   radius: 300
-  selectionItemsData: {fileID: 11400000, guid: b3b32d2443a6fbd48a19fe245bff58ef, type: 2}
   switchTimeInSeconds: 0.5
 --- !u!4 &865153811
 Transform:
