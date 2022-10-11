@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 463082}
   - component: {fileID: 3395776}
   - component: {fileID: 2300770}
-  - component: {fileID: -4483872352764338009}
   - component: {fileID: 230853734309449631}
+  - component: {fileID: 7080571009926912282}
   m_Layer: 0
   m_Name: DarkPurplePad 1
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-4483872352764338009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe88f5eee0f8004e92bdfc960e3a3bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameItem: {fileID: 163608, guid: 07c334b3d4dfb324b866169d2e8734d9, type: 3}
-  id: 5
 --- !u!65 &230853734309449631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.3556967, y: 4.3113623, z: 2.9376087}
   m_Center: {x: -0.000000021886894, y: -0.000000031661727, z: 1.4688042}
+--- !u!114 &7080571009926912282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a0d5d949b572e4a91a35016b13fa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameItem: {fileID: 163608, guid: 07c334b3d4dfb324b866169d2e8734d9, type: 3}
+  id: 5

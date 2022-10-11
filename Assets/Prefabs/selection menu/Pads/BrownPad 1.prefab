@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 461864}
   - component: {fileID: 3385890}
   - component: {fileID: 2362208}
-  - component: {fileID: 8555968091643885958}
   - component: {fileID: 1009657508375929213}
+  - component: {fileID: 65569764457737814}
   m_Layer: 0
   m_Name: BrownPad 1
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8555968091643885958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe88f5eee0f8004e92bdfc960e3a3bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameItem: {fileID: 126428, guid: 4cf0dc858ba38524287d09387060935f, type: 3}
-  id: 4
 --- !u!65 &1009657508375929213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.3556967, y: 4.3113623, z: 2.9376087}
   m_Center: {x: -0.0000009755612, y: -0.000000031661727, z: 1.4688042}
+--- !u!114 &65569764457737814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a0d5d949b572e4a91a35016b13fa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameItem: {fileID: 126428, guid: 4cf0dc858ba38524287d09387060935f, type: 3}
+  id: 4

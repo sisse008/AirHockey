@@ -27,6 +27,9 @@ public class SelectionMenuController : MonoBehaviour
 
     private void OnEnable()
     {
+        TableSelectionItem.OnTableSelected += (item) => { GameManager.Instance.hockeyTable = item.gameItem; };
+
+
         SelectionItem.OnItemSelected += (item) =>
         {
             if (TableSelectionItemsData.Contains(item))

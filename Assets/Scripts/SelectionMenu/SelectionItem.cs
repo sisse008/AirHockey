@@ -10,6 +10,13 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     public GameObject gameItem;
     public int id;
 
+    public static SelectionItem selected;
+
+    protected virtual void OnEnable()
+    {
+        selected = null;
+    }
+
     public bool IsEqual(SelectionItem item)
     {
         return item.id == id;
@@ -18,14 +25,15 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     {
         Highlight();
     }
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnItemSelected?.Invoke(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UnHighlight();
+        if(selected != this)
+            UnHighlight();
     }
 
 
