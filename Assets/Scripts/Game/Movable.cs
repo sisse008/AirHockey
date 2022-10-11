@@ -9,15 +9,29 @@ public abstract class Movable : MonoBehaviour
    
     public float speed = 8000f;
     public RuntimeInputHelper.InputType.InputTypeEnum inputType;
-  
+
+    bool canMove;
     private void Start()
     {
+        canMove = false;
         if(inputType != RuntimeInputHelper.InputType.InputTypeEnum.None)
             RuntimeInputHelper.RegisterInputEvents(inputType , Move);
     }
 
+    public void Freeze()
+    {
+        canMove = false;
+    }
+    public void Unfreeze()
+    {
+        canMove = true;
+    }
+
     protected virtual void Move(float horizontal_axis, float vertical_axis)
     {
+        if (canMove == false)
+            return;
+
         Vector3 direction = new Vector3(horizontal_axis, vertical_axis, 0f).normalized;
 
         transform.position = transform.position + direction * speed * Time.deltaTime;

@@ -21,6 +21,14 @@ public class PlayerController : MonoBehaviour
     public UnityAction OnScore;
 
 
+    public void Freeze()
+    {
+        movableRigidBody.Freeze();
+    }
+    public void Unfreeze()
+    {
+        movableRigidBody.Unfreeze();
+    }
     public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, Movable movableRigidBody)
     {
         this.myGoal = myGoal;

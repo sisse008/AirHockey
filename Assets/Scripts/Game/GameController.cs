@@ -21,11 +21,14 @@ public class GameController : MonoBehaviour
     public Transform player2InitPosition;
     public Transform puckInitPosition;
 
+    public DisplayController display;
+
 
     private void Start()
     {
         NewGame();
     }
+
 
 
     PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
@@ -76,6 +79,26 @@ public class GameController : MonoBehaviour
         ResetGamePositions();
         scoreboard1.UpdateScoreBoard(0);
         scoreboard2.UpdateScoreBoard(0);
+    }
+
+    IEnumerator DisplayGoalVideo()
+    {
+        PauseGame();
+        yield return display.ShowVideo();
+        UnpauseGame();
+    }
+
+    void UnpauseGame()
+    {
+        player1.Unfreeze();
+        player2.Unfreeze();
+    }
+    void PauseGame()
+    {
+        //disable input
+        player1.Freeze();
+        player2.Freeze();
+        ResetGamePositions();
     }
 
     public void ResetGamePositions()
