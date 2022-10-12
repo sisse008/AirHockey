@@ -10,8 +10,16 @@ public class TableSelectionItem : SelectionItem
 
     protected override void OnEnable()
     {
-        OnTableSelected += (item) => { if (item != this) { UnHighlight(); } };
+        OnTableSelected += TableSelected;
         base.OnEnable();
+    }
+    private void OnDisable()
+    {
+        OnTableSelected -= TableSelected;
+    }
+    void TableSelected(SelectionItem item)
+    {
+        if (item != this) { UnHighlight(); }
     }
 
     public override void OnPointerDown(PointerEventData eventData)

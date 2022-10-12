@@ -10,10 +10,19 @@ public class PadSelectionItem : SelectionItem
 
     protected override void OnEnable()
     {
-        OnPadSelected += (item) => { if (item != this) { UnHighlight(); } };
+
+        OnPadSelected += PadSelected;
         base.OnEnable();
     }
+    private void OnDisable()
+    {
+        OnPadSelected -= PadSelected;
+    }
 
+    void PadSelected(SelectionItem item)
+    {
+        if (item != this) { UnHighlight(); }
+    }
     public override void OnPointerDown(PointerEventData eventData)
     {
         selected = this;

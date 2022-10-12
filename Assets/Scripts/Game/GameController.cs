@@ -57,28 +57,46 @@ public class GameController : MonoBehaviour
     }
     void NewGame()
     {
-        if (player1 == null)
-        {
-            player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+
+        DestroyCurrentGame();
+
+        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
             RuntimeInputHelper.InputType.InputTypeEnum.Arrows);
 
-        }
-        if (player2 == null)
-        {
-            player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+
+        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
           RuntimeInputHelper.InputType.InputTypeEnum.ASWD);
-
-        }
-
-        if (table == null)
-        {
-            Quaternion q = Quaternion.identity;
-            q.eulerAngles = new Vector3(0,90,0);
-            table = Instantiate(GameManager.Instance.hockeyTable, Vector3.zero, q);
-        }
+       
+        Quaternion q = Quaternion.identity;
+        q.eulerAngles = new Vector3(0,90,0);
+        table = Instantiate(GameManager.Instance.hockeyTable, Vector3.zero, q);
+        
         ResetGamePositions();
         scoreboard1.UpdateScoreBoard(0);
         scoreboard2.UpdateScoreBoard(0);
+    }
+
+    void DestroyCurrentGame()
+    {
+        if (player1 != null)
+            Destroy(player1.gameObject);
+
+        if (player2 != null)
+            Destroy(player2.gameObject);
+
+        if (table != null)
+            Destroy(table.gameObject);
+
+    }
+
+    public void EndGame()
+    {
+        scoreboard1.UpdateScoreBoard(0);
+        scoreboard2.UpdateScoreBoard(0);
+
+        DestroyCurrentGame();
+
+        GameManager.Instance.SwitchToMainMenuScene();
     }
 
     IEnumerator DisplayGoalVideo()

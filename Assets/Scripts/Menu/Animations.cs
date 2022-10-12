@@ -14,8 +14,7 @@ public class Animations : MonoBehaviour
     Vector2 originalSize;
 
     private void Awake()
-    {
-      
+    {   
         rt = GetComponent<RectTransform>();
     }
 

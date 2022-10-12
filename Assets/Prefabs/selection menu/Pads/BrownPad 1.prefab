@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2362208}
   - component: {fileID: 1009657508375929213}
   - component: {fileID: 65569764457737814}
+  - component: {fileID: -685253649907215476}
   m_Layer: 0
   m_Name: BrownPad 1
   m_TagString: Untagged
@@ -108,5 +109,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a0d5d949b572e4a91a35016b13fa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outline: {fileID: 0}
   gameItem: {fileID: 126428, guid: 4cf0dc858ba38524287d09387060935f, type: 3}
   id: 4
+--- !u!114 &-685253649907215476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 1, b: 0.1782589, a: 1}
+  outlineWidth: 7.76
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

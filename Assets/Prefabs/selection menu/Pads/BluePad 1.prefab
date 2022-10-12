@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2364944}
   - component: {fileID: -5301349819113408084}
   - component: {fileID: -2044601679476524341}
+  - component: {fileID: 8154281493315171560}
   m_Layer: 0
   m_Name: BluePad 1
   m_TagString: Untagged
@@ -108,5 +109,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a0d5d949b572e4a91a35016b13fa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outline: {fileID: 0}
   gameItem: {fileID: 115470, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}
   id: 3
+--- !u!114 &8154281493315171560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 1, b: 0.1782589, a: 1}
+  outlineWidth: 7.76
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

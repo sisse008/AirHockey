@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -9,18 +9,12 @@ public class MainMenuController : MonoBehaviour
     public float loadSceneDelay;
     public void StartNewGame()
     {
-        StartCoroutine(WaitAndLoadScene(loadSceneDelay, GameManager.MainSceneIndex));
+        GameManager.Instance.SwitchToGameScene(loadSceneDelay);
     }
 
     public void LoadSelectionScene()
     {
-        StartCoroutine(WaitAndLoadScene(loadSceneDelay, GameManager.SlectionSceneIndex));
-    }
-
-    IEnumerator WaitAndLoadScene(float secs, int sceneIndex)
-    {
-        yield return new WaitForSeconds(secs);
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+        GameManager.Instance.LoadSelectionScene(loadSceneDelay);
     }
 
     public void QuitGame()

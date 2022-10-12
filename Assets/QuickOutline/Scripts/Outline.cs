@@ -134,6 +134,7 @@ public class Outline : MonoBehaviour {
             renderer.materials = materials.ToArray();
             */
             r.materials = originalMaterial[r];
+           
         }
     }
 

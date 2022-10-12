@@ -28,15 +28,7 @@ public class SelectionMenuController : MonoBehaviour
     private void OnEnable()
     {
         TableSelectionItem.OnTableSelected += (item) => { GameManager.Instance.hockeyTable = item.gameItem; };
-
-
-        SelectionItem.OnItemSelected += (item) =>
-        {
-            if (TableSelectionItemsData.Contains(item))
-                GameManager.Instance.hockeyTable = item.gameItem;
-            else if (PudsSelectionItemsData.Contains(item))
-                GameManager.Instance.pad1 = item.gameItem;
-        };
+        PadSelectionItem.OnPadSelected += (item) => { GameManager.Instance.pad1 = item.gameItem; };
     }
     private void Start()
     {

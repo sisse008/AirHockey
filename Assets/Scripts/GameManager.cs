@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,5 +39,26 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void SwitchToGameScene(float loadSceneDelay)
+    {
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, MainSceneIndex));
+    }
+
+    IEnumerator WaitAndLoadScene(float secs, int sceneIndex)
+    {
+        yield return new WaitForSeconds(secs);
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+    }
+
+    public void LoadSelectionScene(float loadSceneDelay)
+    {
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, SlectionSceneIndex));
+    }
+
+    public void SwitchToMainMenuScene()
+    {
+        StartCoroutine(WaitAndLoadScene(0.1f, MenuSceneIndex));
     }
 }
