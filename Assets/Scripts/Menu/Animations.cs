@@ -9,6 +9,8 @@ public class Animations : MonoBehaviour
     public float duration;
     public float enlargeScaleFactor;
 
+   
+
 
     RectTransform rt;
     Vector2 originalSize;

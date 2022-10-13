@@ -6,14 +6,24 @@ using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Button))]
-public class MenuButtonController : Animations, IAnimatableButton, IPointerEnterHandler, IPointerExitHandler
+public class MenuButtonController : Animations, IAnimatableButton, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+
+    AudioSource hoverSound;
+
+    protected override void Awake()
+    {
+        hoverSound = GetComponent<AudioSource>();
+        base.Awake();
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        PlayHoverSound();
         PlayHoverAnimation();
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        PlayPressedSound();
         PlaySelectedAnimation();
     }
 
@@ -24,10 +34,22 @@ public class MenuButtonController : Animations, IAnimatableButton, IPointerEnter
 
     public void PlaySelectedAnimation()
     {
-        ChangeColor();
+        
     }
     public void PlayHoverAnimation()
     {
         Enlarge();
+    }
+
+    void PlayHoverSound()
+    {
+        hoverSound.pitch = 1;
+        hoverSound.Play();
+    }
+
+    void PlayPressedSound()
+    {
+        hoverSound.pitch = 1.5f;
+        hoverSound.Play();
     }
 }
