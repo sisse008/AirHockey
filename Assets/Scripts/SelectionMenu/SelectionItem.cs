@@ -12,6 +12,14 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
 
     public static SelectionItem selected;
 
+
+    private AudioSource selectedSound;
+
+    private void Awake()
+    {
+        selectedSound = GetComponent<AudioSource>();
+    }
+
     protected virtual void OnEnable()
     {
         selected = null;
@@ -27,6 +35,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        selectedSound.Play();
         OnItemSelected?.Invoke(this);
     }
 

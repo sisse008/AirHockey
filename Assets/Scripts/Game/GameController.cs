@@ -29,8 +29,6 @@ public class GameController : MonoBehaviour
         NewGame();
     }
 
-
-
     PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
         RuntimeInputHelper.InputType.InputTypeEnum inputType)
     {
@@ -126,4 +124,6 @@ public class GameController : MonoBehaviour
         puck.transform.position = puckInitPosition.position;
         puck.Stop();
     }
+
+   
 }

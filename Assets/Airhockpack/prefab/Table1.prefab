@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 130008023}
   m_Layer: 0
   m_Name: collider (4)
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 277510410}
   m_Layer: 0
   m_Name: collider (3)
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 561049690}
   m_Layer: 0
   m_Name: collider (2)
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 960765954}
   m_Layer: 0
   m_Name: collider
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 1666427011}
   m_Layer: 0
   m_Name: collider (1)
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
