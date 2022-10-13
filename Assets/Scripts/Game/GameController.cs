@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
 
         DestroyCurrentGame();
 
-        GameManager.Instance.SwitchToMainMenuScene();
+        GameManager.Instance.SwitchToMainMenuScene(0);
     }
 
     IEnumerator DisplayGoalVideo()

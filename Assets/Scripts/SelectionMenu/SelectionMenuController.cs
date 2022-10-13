@@ -58,8 +58,13 @@ public class SelectionMenuController : MonoBehaviour
         rotatePath = padsSelectionPath.NextItem;
     }
 
-    public void ExitSelectionScene()
+    public void BacktoMainMenuScene()
     {
-        SceneManager.LoadScene(GameManager.MenuSceneIndex, LoadSceneMode.Single);
+        GameManager.Instance.SwitchToMainMenuScene(0f);
+    }
+
+    public void StartNewGame()
+    {
+        GameManager.Instance.SwitchToGameScene(0.2f);
     }
 }

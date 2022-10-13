@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitAndLoadScene(loadSceneDelay, SlectionSceneIndex));
     }
 
-    public void SwitchToMainMenuScene()
+    public void SwitchToMainMenuScene(float loadSceneDelay)
     {
-        StartCoroutine(WaitAndLoadScene(0.1f, MenuSceneIndex));
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, MenuSceneIndex));
     }
 }
