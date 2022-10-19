@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuntimeInputHelper : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class RuntimeInputHelper : MonoBehaviour
             this.inputSystemNameHorizontal = inputSystemNameHorizontal;
             this.inputSystemNameVertical = inputSystemNameVertical;
         }
-        public override void ListerForInput()
+        public override void ListenForInput()
         {
             float horizontal = Input.GetAxisRaw(inputSystemNameHorizontal);
             float vertical = Input.GetAxisRaw(inputSystemNameVertical);
@@ -25,6 +26,25 @@ public class RuntimeInputHelper : MonoBehaviour
             {
                 action?.Invoke(horizontal, vertical);
             }
+        }
+    }
+
+    public class MobileInputType : InputType
+    {
+        Touch theTouch;
+        public MobileInputType(InputTypeEnum type, AxisInputAction action) : base(type, action)
+        {
+
+        }
+
+        public override void ListenForInput()
+        {
+            if (Input.touchCount != 1)
+                return;
+            theTouch = Input.GetTouch(0);
+            Vector3 gameWorldPosition = Camera.main.ScreenToWorldPoint(theTouch.position);
+
+            action?.Invoke(gameWorldPosition.x, gameWorldPosition.z);
         }
     }
     public abstract class InputType
@@ -45,9 +65,8 @@ public class RuntimeInputHelper : MonoBehaviour
         {
             this.type = type;
             this.action = action;
-           
         }
-        public virtual void ListerForInput()
+        public virtual void ListenForInput()
         {
            
         }
@@ -141,6 +160,6 @@ public class RuntimeInputHelper : MonoBehaviour
     private void FixedUpdate()
     {
         foreach (InputType inputType in inputTypeDictionary.Values)
-            inputType.ListerForInput();
+            inputType.ListenForInput();
     }
 }

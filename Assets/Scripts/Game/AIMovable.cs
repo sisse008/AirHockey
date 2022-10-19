@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIMovable : RigidBodyMovable
 {
-    Vector2 currentPos = new Vector2();
+   
     protected override void Start()
     {
         canMove = true;
@@ -13,6 +13,7 @@ public class AIMovable : RigidBodyMovable
     }
 
     //TODO
+    Vector2 currentPos = new Vector2();
     protected override void Move(float horizontal_axis, float vertical_axis)
     {
         //use puck position to calculate my next position
