@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
             RuntimeInputHelper.InputType.InputTypeEnum.Arrows);
 
         player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
-          RuntimeInputHelper.InputType.InputTypeEnum.None, true);
+          RuntimeInputHelper.InputType.InputTypeEnum.ASWD, true);
        
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(0,90,0);

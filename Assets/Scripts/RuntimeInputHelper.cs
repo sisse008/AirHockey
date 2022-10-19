@@ -5,28 +5,18 @@ using UnityEngine;
 
 public class RuntimeInputHelper : MonoBehaviour
 {
-    public class InputType
+    public class KeyInputType : InputType
     {
-        public enum InputTypeEnum
-        {
-            Arrows,
-            ASWD,
-            Both,
-            None
-        };
-
-        InputTypeEnum type;
-        public AxisInputAction action;
         string inputSystemNameHorizontal;
         string inputSystemNameVertical;
-        public InputType(InputTypeEnum type, AxisInputAction action, string inputSystemNameHorizontal, string inputSystemNameVertical)
+
+        public KeyInputType(InputTypeEnum type, AxisInputAction action,
+            string inputSystemNameHorizontal, string inputSystemNameVertical) : base(type, action)
         {
-            this.type = type;
-            this.action = action;
             this.inputSystemNameHorizontal = inputSystemNameHorizontal;
             this.inputSystemNameVertical = inputSystemNameVertical;
         }
-        public void ListerForInput()
+        public override void ListerForInput()
         {
             float horizontal = Input.GetAxisRaw(inputSystemNameHorizontal);
             float vertical = Input.GetAxisRaw(inputSystemNameVertical);
@@ -35,6 +25,31 @@ public class RuntimeInputHelper : MonoBehaviour
             {
                 action?.Invoke(horizontal, vertical);
             }
+        }
+    }
+    public abstract class InputType
+    {
+        public enum InputTypeEnum
+        {
+            Arrows,
+            ASWD,
+            Both,
+            None,
+            Touch
+        };
+
+        InputTypeEnum type;
+        public AxisInputAction action;
+      
+        public InputType(InputTypeEnum type, AxisInputAction action)
+        {
+            this.type = type;
+            this.action = action;
+           
+        }
+        public virtual void ListerForInput()
+        {
+           
         }
 
         public void UnregisterEvents()
@@ -52,19 +67,20 @@ public class RuntimeInputHelper : MonoBehaviour
     public static event AxisInputAction AxisInputPressed;
     public static event AxisInputAction AWSDInputPressed;
     public static event AxisInputAction ArrowsInputPressed;
+    public static event AxisInputAction MobileScreenTouched;
 
     public static Dictionary<InputType.InputTypeEnum, InputType> inputTypeDictionary { get; private set; } =
         new Dictionary<InputType.InputTypeEnum, InputType>();
 
     private void Awake()
     {
-        InputType awsd = new InputType(InputType.InputTypeEnum.ASWD, AWSDInputPressed,
+        InputType awsd = new KeyInputType(InputType.InputTypeEnum.ASWD, AWSDInputPressed,
             "HorizontalAWSD", "VerticalAWSD");
 
-        InputType arrows = new InputType(InputType.InputTypeEnum.Arrows, ArrowsInputPressed,
+        InputType arrows = new KeyInputType(InputType.InputTypeEnum.Arrows, ArrowsInputPressed,
             "HorizontalArrows", "VerticalArrows");
 
-        InputType axis = new InputType(InputType.InputTypeEnum.Both, AxisInputPressed,
+        InputType axis = new KeyInputType(InputType.InputTypeEnum.Both, AxisInputPressed,
             "Horizontal", "Vertical");
 
         inputTypeDictionary[InputType.InputTypeEnum.ASWD] = awsd;

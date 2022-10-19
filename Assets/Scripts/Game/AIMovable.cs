@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class AIMovable : RigidBodyMovable
 {
+    Vector2 currentPos = new Vector2();
     protected override void Start()
     {
-        canMove = false;
+        canMove = true;
+        //TODO
+        //register MOVE to event that puck moves
     }
 
-    Vector2 NextPosition()
+    //TODO
+    protected override void Move(float horizontal_axis, float vertical_axis)
     {
-        return Vector2.zero;
+        //use puck position to calculate my next position
+
+        //  Vector2 nextPos = NextPosition();
+
+        //get direction to move
+
+        // currentPos.x = transform.position.x;
+        //  currentPos.y = transform.position.z;
+        // Vector2 direction = nextPos - currentPos;
+
+        //call base move with direction cordinates
+
+        //base.Move(direction.x, direction.y);
+
     }
 
-    private void Update()
-    {
-        Vector2 nextPos = NextPosition();
-        Move(nextPos.x, nextPos.y);
-    }
 }

@@ -12,11 +12,7 @@ public class RigidBodyMovable : Movable
     {
         rb = GetComponent<Rigidbody>();
     }
-    protected override void Start()
-    {
-        base.Start();
-    }
-
+   
     protected override void Move(float horizontal_axis, float vertical_axis)
     {
         if (canMove == false)
