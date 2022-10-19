@@ -23,7 +23,6 @@ public class GameController : MonoBehaviour
 
     public DisplayController display;
 
-
     private void Start()
     {
         NewGame();
@@ -32,14 +31,12 @@ public class GameController : MonoBehaviour
     PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
         RuntimeInputHelper.InputType.InputTypeEnum inputType, bool isAI = false)
     {
-
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(270, 0, 0);
 
         GameObject player_go = Instantiate(pad, initPositionTransform.position, q);
 
         PlayerController player = Tools.GetComponent<PlayerController>(player_go);
-
 
         RigidBodyMovable rb;
         if(isAI == false)
@@ -50,7 +47,6 @@ public class GameController : MonoBehaviour
         rb.originalPosition = initPositionTransform;
         rb.inputType = inputType;
 
-
         player.InitializePlayer(goal, scoreboard, rb);
         player.OnScore += () => ResetGamePositions();
 
@@ -58,15 +54,13 @@ public class GameController : MonoBehaviour
     }
     void NewGame()
     {
-
         DestroyCurrentGame();
 
-        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
-            RuntimeInputHelper.InputType.InputTypeEnum.Arrows);
+        if (Tools.IsMobile())
+            InitMobileGamePlayers();
+        else
+            InitPCGamePlayers();
 
-        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
-          RuntimeInputHelper.InputType.InputTypeEnum.ASWD, true);
-       
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(0,90,0);
         table = Instantiate(GameManager.Instance.hockeyTable, Vector3.zero, q);
@@ -74,6 +68,31 @@ public class GameController : MonoBehaviour
         ResetGamePositions();
         scoreboard1.UpdateScoreBoard(0);
         scoreboard2.UpdateScoreBoard(0);
+    }
+
+    /// <summary>
+    /// when useAI is set to true, there is only one player in the game. the second player is AI
+    /// </summary>
+    /// <param name="useAI"></param>
+    private void InitPCGamePlayers(bool useAI = false)
+    {
+        //two player game
+        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+            RuntimeInputHelper.InputType.InputTypeEnum.Arrows); //first player uses arrow keys
+
+        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+          RuntimeInputHelper.InputType.InputTypeEnum.ASWD, useAI); //second player uses ASWD (unless useAI is true, then input type is meaningless)
+
+    }
+    private void InitMobileGamePlayers()
+    {
+        //mobile user player
+        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+          RuntimeInputHelper.InputType.InputTypeEnum.Touch);
+
+        //AI player
+        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+          RuntimeInputHelper.InputType.InputTypeEnum.None, true);
     }
 
     void DestroyCurrentGame()

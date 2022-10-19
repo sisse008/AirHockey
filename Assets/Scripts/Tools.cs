@@ -21,4 +21,12 @@ public class Tools
 
         return component;
     }
+
+    public static bool IsMobile()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        return true;
+#endif
+        return false;
+    }
 }

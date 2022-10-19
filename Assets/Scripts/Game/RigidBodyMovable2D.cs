@@ -12,7 +12,7 @@ public class RigidBodyMovable2D : Movable
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    protected override void Move(float horizontal_axis, float vertical_axis)
+    protected override void MoveInDirection(float horizontal_axis, float vertical_axis)
     {
         Vector2 direction = new Vector2(horizontal_axis, vertical_axis).normalized;
 

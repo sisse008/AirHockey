@@ -32,9 +32,11 @@ public class RuntimeInputHelper : MonoBehaviour
     public class MobileInputType : InputType
     {
         Touch theTouch;
+        GameObject cube;
         public MobileInputType(InputTypeEnum type, AxisInputAction action) : base(type, action)
         {
-
+            cube = GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Cube);
+            cube.GetComponent<Collider>().enabled = false;
         }
 
         public override void ListenForInput()
@@ -42,9 +44,18 @@ public class RuntimeInputHelper : MonoBehaviour
             if (Input.touchCount != 1)
                 return;
             theTouch = Input.GetTouch(0);
-            Vector3 gameWorldPosition = Camera.main.ScreenToWorldPoint(theTouch.position);
 
-            action?.Invoke(gameWorldPosition.x, gameWorldPosition.z);
+            Vector3 touchScreenPosition = Input.mousePosition;
+
+            Ray ray = Camera.main.ScreenPointToRay(touchScreenPosition);
+
+            LayerMask hitLayer = LayerMask.NameToLayer("ScreenInputLayer");
+            if (Physics.Raycast(ray, out RaycastHit hitdata, 1000,1<<hitLayer))
+            {
+                cube.transform.position = hitdata.point;
+                Debug.DrawRay(ray.origin, ray.direction * 50, Color.yellow);
+                action?.Invoke( hitdata.point.x, hitdata.point.z);
+            }
         }
     }
     public abstract class InputType
@@ -82,6 +93,7 @@ public class RuntimeInputHelper : MonoBehaviour
         }
     }
 
+
     public delegate void AxisInputAction(float horizontal, float vertical);
     public static event AxisInputAction AxisInputPressed;
     public static event AxisInputAction AWSDInputPressed;
@@ -102,9 +114,12 @@ public class RuntimeInputHelper : MonoBehaviour
         InputType axis = new KeyInputType(InputType.InputTypeEnum.Both, AxisInputPressed,
             "Horizontal", "Vertical");
 
+        InputType touch = new MobileInputType(InputType.InputTypeEnum.Touch, MobileScreenTouched);
+
         inputTypeDictionary[InputType.InputTypeEnum.ASWD] = awsd;
         inputTypeDictionary[InputType.InputTypeEnum.Arrows] = arrows;
         inputTypeDictionary[InputType.InputTypeEnum.Both] = axis;
+        inputTypeDictionary[InputType.InputTypeEnum.Touch] = touch;
     }
 
     public static void RegisterInputEvents(InputType.InputTypeEnum inputTypeEnum,Action<float, float> onEvent)

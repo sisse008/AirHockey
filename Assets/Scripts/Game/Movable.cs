@@ -14,8 +14,11 @@ public abstract class Movable : MonoBehaviour
     protected virtual void Start()
     {
         canMove = true;
-        if(inputType != RuntimeInputHelper.InputType.InputTypeEnum.None)
-            RuntimeInputHelper.RegisterInputEvents(inputType , Move);
+
+        if (inputType == RuntimeInputHelper.InputType.InputTypeEnum.Touch)
+            RuntimeInputHelper.RegisterInputEvents(inputType, MoveToPosition);
+        else if (inputType != RuntimeInputHelper.InputType.InputTypeEnum.None)
+            RuntimeInputHelper.RegisterInputEvents(inputType, MoveInDirection);
     }
 
     public void Freeze()
@@ -26,8 +29,11 @@ public abstract class Movable : MonoBehaviour
     {
         canMove = true;
     }
-
-    protected virtual void Move(float horizontal_axis, float vertical_axis)
+    protected virtual void MoveToPosition(float newPos_x, float newPos_z)
+    {
+       
+    }
+    protected virtual void MoveInDirection(float horizontal_axis, float vertical_axis)
     {
         if (canMove == false)
             return;

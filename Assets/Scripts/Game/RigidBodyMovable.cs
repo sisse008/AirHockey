@@ -12,8 +12,16 @@ public class RigidBodyMovable : Movable
     {
         rb = GetComponent<Rigidbody>();
     }
-   
-    protected override void Move(float horizontal_axis, float vertical_axis)
+
+    protected override void MoveToPosition(float newPos_x, float newPos_z)
+    {
+        if (canMove == false)
+            return;
+
+        Vector3 direction = new Vector3(newPos_x, transform.position.y, newPos_z) - transform.position;
+        MoveInDirection(direction.x, direction.z);
+    }
+    protected override void MoveInDirection(float horizontal_axis, float vertical_axis)
     {
         if (canMove == false)
             return;

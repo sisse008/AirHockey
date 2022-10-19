@@ -14,7 +14,7 @@ public class AIMovable : RigidBodyMovable
 
     //TODO
     Vector2 currentPos = new Vector2();
-    protected override void Move(float horizontal_axis, float vertical_axis)
+    protected override void MoveInDirection(float horizontal_axis, float vertical_axis)
     {
         //use puck position to calculate my next position
 
