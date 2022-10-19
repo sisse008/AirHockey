@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(RigidBodyMovable))]
+
 public class PlayerController : MonoBehaviour
 {
 
     public GoalController myGoal;
     public ScoreboardController myScoreboard;
-    
-    
-    Movable movableRigidBody;
+
+
+    RigidBodyMovable movableRigidBody;
 
     [SerializeField]
-    private int score;
+    protected int score;
     public int Score => score;
 
     public UnityAction OnScore;
@@ -29,12 +29,11 @@ public class PlayerController : MonoBehaviour
     {
         movableRigidBody.Unfreeze();
     }
-    public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, Movable movableRigidBody)
+    public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, RigidBodyMovable movableRigidBody)
     {
         this.myGoal = myGoal;
         this.myScoreboard = myScoreboard;
         this.movableRigidBody = movableRigidBody;
-
 
         myGoal.OnScoredEvent += () =>
         {
@@ -44,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
             OnScore?.Invoke();
         };
-
     }
 
     private void OnDisable()

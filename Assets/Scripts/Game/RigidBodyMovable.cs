@@ -12,12 +12,17 @@ public class RigidBodyMovable : Movable
     {
         rb = GetComponent<Rigidbody>();
     }
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     protected override void Move(float horizontal_axis, float vertical_axis)
     {
-        Vector3 direction = new Vector3(horizontal_axis, 0f, vertical_axis).normalized;
+        if (canMove == false)
+            return;
 
-        // rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        Vector3 direction = new Vector3(horizontal_axis, 0f, vertical_axis).normalized;
         rb.AddForce(direction * speed);
     }
 

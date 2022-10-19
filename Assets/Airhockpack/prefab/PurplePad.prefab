@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2380068}
   - component: {fileID: -8480341911333722395}
   - component: {fileID: 7217177095088156223}
-  - component: {fileID: -931653606016271833}
   m_Layer: 0
   m_Name: PurplePad
   m_TagString: Untagged
@@ -114,18 +113,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!114 &-931653606016271833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc95bb73a148a14c943ad5b615dd9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalPosition: {fileID: 0}
-  speed: 8000
-  inputType: 0

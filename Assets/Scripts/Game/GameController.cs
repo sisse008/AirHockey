@@ -30,20 +30,23 @@ public class GameController : MonoBehaviour
     }
 
     PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
-        RuntimeInputHelper.InputType.InputTypeEnum inputType)
+        RuntimeInputHelper.InputType.InputTypeEnum inputType, bool isAI = false)
     {
 
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(270, 0, 0);
 
         GameObject player_go = Instantiate(pad, initPositionTransform.position, q);
-        PlayerController player = player_go.GetComponent<PlayerController>();
-        if (player == null)
-            player = player_go.AddComponent<PlayerController>();
 
-        RigidBodyMovable rb = player_go.GetComponent<RigidBodyMovable>();
-        if (rb == null)
-            rb = player_go.AddComponent<RigidBodyMovable>();
+        PlayerController player = Tools.GetComponent<PlayerController>(player_go);
+
+
+        RigidBodyMovable rb;
+        if(isAI == false)
+            rb = Tools.GetComponent<RigidBodyMovable>(player_go);
+        else
+            rb = Tools.GetComponent<AIMovable>(player_go);
+
         rb.originalPosition = initPositionTransform;
         rb.inputType = inputType;
 
@@ -61,9 +64,8 @@ public class GameController : MonoBehaviour
         player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
             RuntimeInputHelper.InputType.InputTypeEnum.Arrows);
 
-
         player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
-          RuntimeInputHelper.InputType.InputTypeEnum.ASWD);
+          RuntimeInputHelper.InputType.InputTypeEnum.None, true);
        
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(0,90,0);
@@ -87,13 +89,17 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void EndGame()
+    private void EndGame()
     {
         scoreboard1.UpdateScoreBoard(0);
         scoreboard2.UpdateScoreBoard(0);
 
         DestroyCurrentGame();
+    }
 
+    public void ExitGame()
+    {
+        EndGame();
         GameManager.Instance.SwitchToMainMenuScene(0);
     }
 
@@ -112,15 +118,19 @@ public class GameController : MonoBehaviour
     void PauseGame()
     {
         //disable input
-        player1.Freeze();
-        player2.Freeze();
+        if(player1)
+            player1.Freeze();
+        if(player2)
+            player2.Freeze();
         ResetGamePositions();
     }
 
     public void ResetGamePositions()
     {
-        player1.ResetPosition();
-        player2.ResetPosition();
+        if(player1)
+            player1.ResetPosition();
+        if(player2)
+            player2.ResetPosition();
         puck.transform.position = puckInitPosition.position;
         puck.Stop();
     }

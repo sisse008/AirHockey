@@ -10,10 +10,10 @@ public abstract class Movable : MonoBehaviour
     public float speed = 8000f;
     public RuntimeInputHelper.InputType.InputTypeEnum inputType;
 
-    bool canMove;
-    private void Start()
+    protected bool canMove;
+    protected virtual void Start()
     {
-        canMove = false;
+        canMove = true;
         if(inputType != RuntimeInputHelper.InputType.InputTypeEnum.None)
             RuntimeInputHelper.RegisterInputEvents(inputType , Move);
     }
