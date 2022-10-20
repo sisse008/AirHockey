@@ -19,7 +19,10 @@ public class RigidBodyMovable : Movable
             return;
 
         Vector3 direction = new Vector3(newPos_x, transform.position.y, newPos_z) - transform.position;
-        MoveInDirection(direction.x, direction.z);
+
+        float distance = direction.magnitude;
+        if(distance > 0.5f)
+            MoveInDirection(direction.x, direction.z);
     }
     protected override void MoveInDirection(float horizontal_axis, float vertical_axis)
     {

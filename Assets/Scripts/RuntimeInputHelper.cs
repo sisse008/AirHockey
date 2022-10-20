@@ -32,11 +32,10 @@ public class RuntimeInputHelper : MonoBehaviour
     public class MobileInputType : InputType
     {
         Touch theTouch;
-        GameObject cube;
+       
         public MobileInputType(InputTypeEnum type, AxisInputAction action) : base(type, action)
         {
-            cube = GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Cube);
-            cube.GetComponent<Collider>().enabled = false;
+            
         }
 
         public override void ListenForInput()
@@ -52,7 +51,6 @@ public class RuntimeInputHelper : MonoBehaviour
             LayerMask hitLayer = LayerMask.NameToLayer("ScreenInputLayer");
             if (Physics.Raycast(ray, out RaycastHit hitdata, 1000,1<<hitLayer))
             {
-                cube.transform.position = hitdata.point;
                 Debug.DrawRay(ray.origin, ray.direction * 50, Color.yellow);
                 action?.Invoke( hitdata.point.x, hitdata.point.z);
             }
