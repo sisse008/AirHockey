@@ -13,6 +13,18 @@ public class Animations : MonoBehaviour
     RectTransform rt;
     Vector2 originalSize;
 
+    Vector2 OriginalSize
+    {
+        get 
+        {
+            if (originalSize == null || originalSize == Vector2.zero)
+            {
+                originalSize = rt.sizeDelta;
+            }
+            return originalSize;
+        }
+    }
+
     protected virtual void Awake()
     {   
         rt = GetComponent<RectTransform>();
@@ -24,7 +36,7 @@ public class Animations : MonoBehaviour
     }
     protected void Enlarge()
     {
-        Vector2 targetSize = originalSize * enlargeScaleFactor;
+        Vector2 targetSize = OriginalSize * enlargeScaleFactor;
         StartCoroutine(Resize(duration, targetSize)); 
     }
 
@@ -35,13 +47,14 @@ public class Animations : MonoBehaviour
 
     IEnumerator Resize(float duration, Vector2 targetSize)
     {
-        float time = 0;
+        float _time = 0;
         Vector2 currentsize = rt.sizeDelta;
        
-        while (time < duration)
+        while (_time < duration)
         {
-            time += Time.deltaTime;
-            rt.sizeDelta = Vector3.Lerp(currentsize, targetSize, time / duration);
+           // Debug.Log("resizing button = " + name + "   rt.sizeDelta = " + rt.sizeDelta + "   targetSize = " + targetSize);
+            _time += Time.deltaTime;
+            rt.sizeDelta = Vector2.Lerp(currentsize, targetSize, _time / duration);
             yield return null;
         }
     }
