@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public GoalController myGoal;
     public ScoreboardController myScoreboard;
+    public PlayAreaController myPlayArea;
 
 
     RigidBodyMovable movableRigidBody;
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public UnityAction OnScore;
 
+
+   
 
     public void Freeze()
     {
@@ -59,6 +62,27 @@ public class PlayerController : MonoBehaviour
         movableRigidBody.ResetPosition();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsTriggerCollisionWithPlayArea(other))
+        {
+            myPlayArea.PropmptWarning(false);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (IsTriggerCollisionWithPlayArea(other))
+        {
+            myPlayArea.PropmptWarning();
+        }
+    }
 
+    bool IsTriggerCollisionWithPlayArea(Collider other)
+    {
+        PlayAreaController playArea = other.GetComponent<PlayAreaController>();
+        if (playArea && playArea == myPlayArea)
+            return true;
+        return false;
+    }
 
 }

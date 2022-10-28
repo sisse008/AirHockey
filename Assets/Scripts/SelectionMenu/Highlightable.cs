@@ -46,7 +46,7 @@ public class Highlightable : MonoBehaviour, IHighlightable
         while (highlighted)
         {
             yield return ChangeOutlineWidth(1, 0);
-            yield return ChangeOutlineWidth(1, 40);
+            yield return ChangeOutlineWidth(1, 30);
         }
     }
 

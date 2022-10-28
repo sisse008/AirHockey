@@ -10,22 +10,27 @@ public class PlayAreaController : Highlightable
     {
         _material = GetComponent<MeshRenderer>().materials[0];
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<PlayerController>())
-        {
-            HighlightDynamic();
-            ShowArea();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerController>())
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player)
         {
-            UnHighlight();
-            ShowArea(true);
+            if (player.myPlayArea == null)
+            {
+                player.myPlayArea = this;
+            }
         }
+    }
+
+    public void PropmptWarning(bool prompt = true)
+    {
+        if (prompt)
+        {
+            HighlightDynamic();
+        }
+        else { UnHighlight(); }
+        ShowArea(!prompt);
     }
 
     void ShowArea(bool hide = false)
