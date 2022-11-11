@@ -10,7 +10,7 @@ public class Highlightable : MonoBehaviour, IHighlightable
 {
     public Outline outline;
     bool highlighted;
-    private void Start()
+    protected virtual void Start()
     {
         outline = GetComponent<Outline>();
         outline.OutlineColor = new Color(0,255,0,255);

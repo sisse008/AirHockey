@@ -28,9 +28,10 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
         selected = null;
     }
 
-    private void Start()
+    protected override void Start() 
     {
         selectable = true;
+        base.Start();
     }
 
     public bool IsEqual(SelectionItem item)
@@ -39,7 +40,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     }
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        if (selectable)
+       // if (selectable)
             Highlight();
     }
     public virtual void OnPointerDown(PointerEventData eventData)
