@@ -25,6 +25,8 @@ public class PadSelectionItem : SelectionItem
     }
     public override void OnPointerDown(PointerEventData eventData)
     {
+        if (!selectable)
+            return;
         selected = this;
         OnPadSelected?.Invoke(this);
         base.OnPointerDown(eventData);

@@ -11,7 +11,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     public int id;
 
     //TODO: set selectable to true only when is desplayed on screen
-    protected bool selectable;
+    protected bool selectable => (transform.position - SelectionMenuController.selectionCamera.transform.position).magnitude < 101f;
 
     public static SelectionItem selected;
 
@@ -28,19 +28,13 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
         selected = null;
     }
 
-    protected override void Start() 
-    {
-        selectable = true;
-        base.Start();
-    }
-
     public bool IsEqual(SelectionItem item)
     {
         return item.id == id;
     }
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-       // if (selectable)
+        if (selectable)
             Highlight();
     }
     public virtual void OnPointerDown(PointerEventData eventData)
