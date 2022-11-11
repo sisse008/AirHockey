@@ -10,6 +10,9 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     public GameObject gameItem;
     public int id;
 
+    //TODO: set selectable to true only when is desplayed on screen
+    protected bool selectable;
+
     public static SelectionItem selected;
 
 
@@ -25,16 +28,25 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
         selected = null;
     }
 
+    private void Start()
+    {
+        selectable = true;
+    }
+
     public bool IsEqual(SelectionItem item)
     {
         return item.id == id;
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        Highlight();
+        if (selectable)
+            Highlight();
     }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+        if (!selectable)
+            return;
+
         selectedSound.Play();
         OnItemSelected?.Invoke(this);
     }

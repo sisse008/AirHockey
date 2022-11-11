@@ -24,6 +24,8 @@ public class TableSelectionItem : SelectionItem
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        if (!selectable)
+            return;
         selected = this;
         OnTableSelected?.Invoke(this);
         base.OnPointerDown(eventData);  
