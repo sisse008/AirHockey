@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec15801c18a1fc4586db9b3e5021a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 822076339}
 --- !u!4 &232256478
 Transform:
   m_ObjectHideFlags: 0
@@ -560,6 +561,30 @@ PrefabInstance:
     - target: {fileID: 8611863699177596457, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
       propertyPath: m_Name
       value: top bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611863699215352846, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 232256477}
+    - target: {fileID: 8611863699215352846, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartNewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611863699215352846, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611863700433881911, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 232256477}
+    - target: {fileID: 8611863700433881911, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BacktoMainMenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611863700433881911, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
@@ -859,7 +884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Single Player
+  m_text: Two Players
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75fadf9299bd8804192f96fef85acd0c, type: 2}
   m_sharedMaterial: {fileID: -6324187279528265634, guid: 75fadf9299bd8804192f96fef85acd0c, type: 2}
@@ -1161,25 +1186,13 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Single Player
-      m_Image: {fileID: 0}
     - m_Text: Two Players
+      m_Image: {fileID: 0}
+    - m_Text: Single Player
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 232256477}
-        m_TargetAssemblyTypeName: SettingsMenuController, Assembly-CSharp
-        m_MethodName: UpdateGameType
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 822076339}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &822076340
 MonoBehaviour:

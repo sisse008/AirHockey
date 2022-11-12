@@ -5,20 +5,48 @@ using UnityEngine;
 
 public class SettingsMenuController : MonoBehaviour
 {
-    public void UpdateGameTypeToSinglePlayer()
+    public TMP_Dropdown dropdown;
+
+    public Dictionary<int, GameManager.GameType> gameTypeIndex = new Dictionary<int, GameManager.GameType>()
     {
-        GameManager.Instance.gameType = GameManager.GameType.SINGLE_PLAYER;
-    }
-    public void UpdateGameTypeToMultiplePlayer()
+        { 0, GameManager.GameType.MULTIPLE_PLAYER},
+        { 1, GameManager.GameType.SINGLE_PLAYER}
+    };
+    private void OnEnable()
     {
-        GameManager.Instance.gameType = GameManager.GameType.MULTIPLE_PLAYER;
+        UpdateDropdownValue();
+        dropdown.onValueChanged.AddListener(UpdateGameType);
     }
 
-    public void UpdateGameType(TMP_Dropdown change)
+    private void OnDisable()
     {
-        if (change.value == 0)
-            UpdateGameTypeToSinglePlayer();
-        else
-            UpdateGameTypeToMultiplePlayer();
+        dropdown.onValueChanged.RemoveAllListeners();
+    }
+
+    private void UpdateDropdownValue()
+    {
+        foreach (KeyValuePair<int, GameManager.GameType> item in gameTypeIndex)
+        {
+            if (item.Value == GameManager.Instance.gameType)
+                dropdown.value = item.Key;
+        }
+    }
+    private void UpdateGameType(int val)
+    {
+        foreach (KeyValuePair<int, GameManager.GameType> item in gameTypeIndex)
+        {
+            if (item.Key == val)
+                GameManager.Instance.gameType = item.Value;
+        }
+    }
+
+    public void BacktoMainMenuScene()
+    {
+        GameManager.Instance.SwitchToMainMenuScene(0f);
+    }
+
+    public void StartNewGame()
+    {
+        GameManager.Instance.SwitchToGameScene(0.2f);
     }
 }

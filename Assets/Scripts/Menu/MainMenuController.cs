@@ -16,6 +16,10 @@ public class MainMenuController : MonoBehaviour
     {
         GameManager.Instance.LoadSelectionScene(loadSceneDelay);
     }
+    public void LoadSettingsScene()
+    {
+        GameManager.Instance.LoadSettingsScene(loadSceneDelay);
+    }
 
     public void QuitGame()
     {

@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/selectionmenu.unity
     guid: 9d1ef7e723f74ec46a59b9e08657338e
   - enabled: 1
-    path: Assets/Scenes/3DAirHockey.unity
-    guid: dcfa1842fde96954b8c23b83d132aca7
-  - enabled: 1
     path: Assets/Scenes/settings.unity
     guid: 8509da397a037a943a5c55cccfebc02a
+  - enabled: 1
+    path: Assets/Scenes/3DAirHockey.unity
+    guid: dcfa1842fde96954b8c23b83d132aca7
   m_configObjects: {}

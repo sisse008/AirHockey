@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         MULTIPLE_PLAYER
     };
 
-    public GameType gameType = GameType.SINGLE_PLAYER;
+    public GameType gameType = GameType.MULTIPLE_PLAYER;
 
 
     public static GameManager Instance
@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public const int MainSceneIndex = 2;
+    public const int MainSceneIndex = 3;
+    public const int SettingsSceneIndex = 2;
     public const int SlectionSceneIndex = 1;
     public const int MenuSceneIndex = 0;
 
@@ -62,6 +63,11 @@ public class GameManager : MonoBehaviour
     public void LoadSelectionScene(float loadSceneDelay)
     {
         StartCoroutine(WaitAndLoadScene(loadSceneDelay, SlectionSceneIndex));
+    }
+
+    public void LoadSettingsScene(float loadSceneDelay)
+    {
+        StartCoroutine(WaitAndLoadScene(loadSceneDelay, SettingsSceneIndex));
     }
 
     public void SwitchToMainMenuScene(float loadSceneDelay)
