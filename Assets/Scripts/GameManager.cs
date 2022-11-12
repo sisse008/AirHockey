@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
@@ -14,7 +16,13 @@ public class GameManager : MonoBehaviour
  
     public GameObject pad2;
 
+    public enum GameType
+    {
+        SINGLE_PLAYER,
+        MULTIPLE_PLAYER
+    };
 
+    public GameType gameType = GameType.SINGLE_PLAYER;
 
 
     public static GameManager Instance
@@ -40,7 +48,6 @@ public class GameManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
     }
-
     public void SwitchToGameScene(float loadSceneDelay)
     {
         StartCoroutine(WaitAndLoadScene(loadSceneDelay, MainSceneIndex));
