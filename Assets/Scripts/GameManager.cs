@@ -16,13 +16,26 @@ public class GameManager : MonoBehaviour
  
     public GameObject pad2;
 
-    public enum GameType
+    public enum GameTypeEnum
     {
         SINGLE_PLAYER,
         MULTIPLE_PLAYER
     };
 
-    public GameType gameType = GameType.MULTIPLE_PLAYER;
+    private GameTypeEnum gameType;
+    public GameTypeEnum GameType
+    {
+        get 
+        {
+            if (Tools.IsMobile())
+                gameType = GameTypeEnum.SINGLE_PLAYER;
+            return gameType;
+        }
+        set 
+        {
+            gameType = value;
+        }
+    }
 
 
     public static GameManager Instance

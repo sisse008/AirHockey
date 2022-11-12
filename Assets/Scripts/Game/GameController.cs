@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
         if (Tools.IsMobile())
             InitMobileGamePlayers();
         else
-            InitPCGamePlayers(GameManager.Instance.gameType == GameManager.GameType.SINGLE_PLAYER); // if single player -> use AI
+            InitPCGamePlayers(GameManager.Instance.GameType == GameManager.GameTypeEnum.SINGLE_PLAYER); // if single player -> use AI
 
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(0,90,0);
