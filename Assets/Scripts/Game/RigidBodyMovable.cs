@@ -7,7 +7,7 @@ using UnityEngine;
 public class RigidBodyMovable : Movable
 {
 
-    Rigidbody rb;
+    protected Rigidbody rb;
     protected void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,6 +36,15 @@ public class RigidBodyMovable : Movable
     public override void ResetPosition()
     {
         transform.position = originalPosition.position;
+        StartCoroutine(Stop());
+    }
+
+    IEnumerator Stop()
+    {
         rb.velocity = Vector3.zero;
+        bool _canMove = canMove;
+        canMove = false;
+        yield return new WaitForSeconds(0.1f);
+        canMove = _canMove;
     }
 }

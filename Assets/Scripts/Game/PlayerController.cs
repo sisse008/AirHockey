@@ -7,7 +7,6 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-
     public GoalController myGoal;
     public ScoreboardController myScoreboard;
     public PlayAreaController myPlayArea;
@@ -21,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
     public UnityAction OnScore;
 
-
-   
 
     public void Freeze()
     {
@@ -46,15 +43,6 @@ public class PlayerController : MonoBehaviour
 
             OnScore?.Invoke();
         };
-    }
-
-    private void OnDisable()
-    {
-      /*  foreach (Delegate d in OnScore.GetInvocationList())
-        {
-            OnScore -= (UnityAction)d;
-        }
-      */
     }
 
     public void ResetPosition()

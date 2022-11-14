@@ -540,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611863699177596454, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.394104
+      value: -8.394043
       objectReference: {fileID: 0}
     - target: {fileID: 8611863699177596454, guid: f4ce1d271c8ecc04a9684e7c4d3ccffd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1133,7 +1133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88.519, y: -69}
+  m_AnchoredPosition: {x: 88.519, y: -84.4}
   m_SizeDelta: {x: 222.963, y: 60.554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822076339
@@ -2059,7 +2059,7 @@ GameObject:
   - component: {fileID: 1910458269}
   - component: {fileID: 1910458268}
   m_Layer: 5
-  m_Name: game type
+  m_Name: game type text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

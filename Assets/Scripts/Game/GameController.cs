@@ -23,6 +23,23 @@ public class GameController : MonoBehaviour
 
     public DisplayController display;
 
+    private static GameController instance = null;
+    public static GameController Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<GameController>();
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance && instance != this)
+            Destroy(gameObject);
+    }
+
     private void Start()
     {
         NewGame();

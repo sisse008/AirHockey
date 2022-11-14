@@ -6,28 +6,45 @@ public class PuckController : MonoBehaviour
 {
     public Rigidbody rb;
 
+    public delegate void PuckMoveAction(Vector3 velocity);
+    public event PuckMoveAction PuckMoveDirectionChanged;
+
+    public bool isMoving { get; private set; }
+    public Vector3 Position => rb.position;
+
     AudioSource puckAudioSource;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         puckAudioSource = GetComponent<AudioSource>();
-       
     }
     public void Stop()
     {
         rb.velocity = Vector3.zero;
     }
 
+    private void Update()
+    {
+        isMoving = rb.velocity != Vector3.zero;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<PlayerController>())
         {
+            SendPuckDirectionChangedEvent();
             PayPadHitPuckSound();
         }
         else if(collision.gameObject.tag == "Boundry")
         {
+            SendPuckDirectionChangedEvent();
             PlayPuckHitWallSound();
         }     
+    }
+
+    void SendPuckDirectionChangedEvent()
+    {
+        PuckMoveDirectionChanged?.Invoke(rb.velocity);
     }
     void PlayPuckHitWallSound()
     {
