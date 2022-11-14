@@ -10,19 +10,6 @@ public class PlayAreaController : Highlightable
     {
         _material = GetComponent<MeshRenderer>().materials[0];
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player)
-        {
-            if (player.myPlayArea == null)
-            {
-                player.myPlayArea = this;
-            }
-        }
-    }
-
     public void PropmptWarning(bool prompt = true)
     {
         if (prompt)

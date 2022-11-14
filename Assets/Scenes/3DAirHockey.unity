@@ -1450,6 +1450,8 @@ MonoBehaviour:
   goal2: {fileID: 2021823040}
   scoreboard1: {fileID: 97549416}
   scoreboard2: {fileID: 1096902588}
+  player1Area: {fileID: 644547012}
+  player2Area: {fileID: 1589595801}
   player1InitPosition: {fileID: 554798262}
   player2InitPosition: {fileID: 1484836508}
   puckInitPosition: {fileID: 801402015}
@@ -1704,6 +1706,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644547012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2409324429517086526, guid: 531cad83aaa92934891d4c724befbe7d, type: 3}
+  m_PrefabInstance: {fileID: 223258463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db7df1c44acb634c8892eec65e6362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671898909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,6 +3070,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu_animations: {fileID: 1622707567}
+--- !u!114 &1589595801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2409324429517086526, guid: 531cad83aaa92934891d4c724befbe7d, type: 3}
+  m_PrefabInstance: {fileID: 2084511587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db7df1c44acb634c8892eec65e6362b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592957617
 GameObject:
   m_ObjectHideFlags: 0

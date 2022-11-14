@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour
     public ScoreboardController scoreboard1;
     public ScoreboardController scoreboard2;
 
+    public PlayAreaController player1Area;
+    public PlayAreaController player2Area;
+
 
     public Transform player1InitPosition;
     public Transform player2InitPosition;
@@ -45,8 +48,8 @@ public class GameController : MonoBehaviour
         NewGame();
     }
 
-    PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard,
-        RuntimeInputHelper.InputType.InputTypeEnum inputType, bool isAI = false)
+    PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard, 
+        PlayAreaController playArea, RuntimeInputHelper.InputType.InputTypeEnum inputType, bool isAI = false)
     {
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(270, 0, 0);
@@ -64,7 +67,7 @@ public class GameController : MonoBehaviour
         rb.originalPosition = initPositionTransform;
         rb.inputType = inputType;
 
-        player.InitializePlayer(goal, scoreboard, rb);
+        player.InitializePlayer(goal, scoreboard, rb, playArea);
         player.OnScore += () => ResetGamePositions();
 
         return player;
@@ -94,21 +97,21 @@ public class GameController : MonoBehaviour
     private void InitPCGamePlayers(bool useAI = false)
     {
         //two player game
-        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1, player1Area,
             RuntimeInputHelper.InputType.InputTypeEnum.Arrows); //first player uses arrow keys
 
-        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2, player2Area,
           RuntimeInputHelper.InputType.InputTypeEnum.ASWD, useAI); //second player uses ASWD (unless useAI is true, then input type is meaningless)
 
     }
     private void InitMobileGamePlayers()
     {
         //mobile user player
-        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1,
+        player1 = InitNewPlayer(GameManager.Instance.pad1, player1InitPosition, goal1, scoreboard1, player1Area,
           RuntimeInputHelper.InputType.InputTypeEnum.Touch);
 
         //AI player
-        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2,
+        player2 = InitNewPlayer(GameManager.Instance.pad2, player2InitPosition, goal2, scoreboard2, player2Area,
           RuntimeInputHelper.InputType.InputTypeEnum.None, true);
     }
 

@@ -29,11 +29,12 @@ public class PlayerController : MonoBehaviour
     {
         movableRigidBody.Unfreeze();
     }
-    public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, RigidBodyMovable movableRigidBody)
+    public void InitializePlayer(GoalController myGoal, ScoreboardController myScoreboard, RigidBodyMovable movableRigidBody, PlayAreaController playArea)
     {
         this.myGoal = myGoal;
         this.myScoreboard = myScoreboard;
         this.movableRigidBody = movableRigidBody;
+        this.myPlayArea = playArea;
 
         myGoal.OnScoredEvent += () =>
         {
