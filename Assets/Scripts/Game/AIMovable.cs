@@ -5,17 +5,48 @@ using UnityEngine;
 public class AIMovable : RigidBodyMovable
 {
 
-    public float threshHoldDistance = 30f;
+    public float threshHoldPuckDistance = 30f;
+    public float maxSpeed = 20f;
 
     private Vector3 InitPos;
-    Vector3 newPos = new Vector3();
+    Vector3 targetPosition = new Vector3();
+    float targetSpeed;
 
     protected override void Start()
     {
         InitPos = rb.position;
-        StartCoroutine(AIMove());
+       // StartCoroutine(AIMove()); obselete
     }
 
+    private void FixedUpdate()
+    {
+        if (GameController.Instance.puck.isMoving == false)
+            return;
+
+        if (movementBounderies == null)
+            return;
+
+        //if puck is far, move slowly and only on x axis
+        if (GameController.Instance.puck.Position.z < movementBounderies.MinZ)
+        {
+            Debug.Log("Far");
+            targetSpeed = maxSpeed * Random.Range(0.1f, 0.3f);
+            targetPosition = InitPos;
+            targetPosition.x = GameController.Instance.puck.Position.x;
+        }
+        else //puck is near, move directly to the puck
+        {
+            Debug.Log("Near");
+            targetSpeed = Random.Range(maxSpeed * 0.4f, maxSpeed);
+            targetPosition = InitPos;
+            targetPosition.x = GameController.Instance.puck.Position.x;
+            targetPosition.z = GameController.Instance.puck.Position.z;
+        }
+        rb.MovePosition(Vector3.MoveTowards(rb.position, targetPosition, 
+            targetSpeed* Time.fixedDeltaTime));
+    }
+
+    #region obselete AI movement code
     private IEnumerator AIMove()
     {
         while (true)
@@ -27,15 +58,14 @@ public class AIMovable : RigidBodyMovable
             // Debug.Log("AIPosition:    " +rb.position);
             //Debug.Log("(puckPosition - transform.position).magnitude:    " + (puckPosition - transform.position).magnitude);
 
-            if (Vector3.Distance(puckPosition, rb.position) < threshHoldDistance && puckPosition.z < rb.position.z)
+            if (Vector3.Distance(puckPosition, rb.position) < threshHoldPuckDistance && puckPosition.z < rb.position.z)
             {
-                newPos = InitPos;
-                newPos.x = puckPosition.x;
-                yield return AIMoveToPosition(newPos, 0.5f);
+                targetPosition = InitPos;
+                targetPosition.x = puckPosition.x;
+                yield return AIMoveToPosition(targetPosition, 0.5f);
             }
         }
-    }
-   
+    }  
     protected IEnumerator AIMoveToPosition(Vector3 destination, float actionTime)
     {
         float time = 0;
@@ -50,4 +80,5 @@ public class AIMovable : RigidBodyMovable
             yield return null;
         }
     }
+    #endregion
 }

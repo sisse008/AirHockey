@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         this.myScoreboard = myScoreboard;
         this.movableRigidBody = movableRigidBody;
         this.myPlayArea = playArea;
+        this.movableRigidBody.movementBounderies = playArea.boundries;
 
         myGoal.OnScoredEvent += () =>
         {

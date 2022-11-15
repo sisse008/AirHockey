@@ -18,9 +18,10 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
 
     private AudioSource selectedSound;
 
-    private void Awake()
+    protected override void Awake() 
     {
         selectedSound = GetComponent<AudioSource>();
+        base.Awake();
     }
 
     protected virtual void OnEnable()

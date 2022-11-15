@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public abstract class Movable : MonoBehaviour
 {
 
     public Transform originalPosition;
+    public Boundry movementBounderies = null;
    
     public float speed = 8000f;
     public RuntimeInputHelper.InputType.InputTypeEnum inputType;

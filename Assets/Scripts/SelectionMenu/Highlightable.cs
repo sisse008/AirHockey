@@ -18,6 +18,11 @@ public class Highlightable : MonoBehaviour, IHighlightable
         highlighted = false;
     }
 
+    protected virtual void Awake()
+    {
+        
+    }
+
     public void Highlight()
     {
         outline.ActivateOutline();
