@@ -15,7 +15,7 @@ public class SettingsMenuController : MonoBehaviour
     };
     private void OnEnable()
     {
-       // if (Tools.IsMobile())
+        if (Tools.IsMobile())
             StartCoroutine(DisableMultiPlayerOption());
         UpdateDropdownValue();
         dropdown.onValueChanged.AddListener(UpdateGameType);

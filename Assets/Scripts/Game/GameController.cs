@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
             rb = Tools.GetComponent<AIMovable>(player_go);
 
         rb.originalPosition = initPositionTransform;
-        rb.inputType = inputType;
+        rb.inputType = isAI? RuntimeInputHelper.InputType.InputTypeEnum.None : inputType;
 
         player.InitializePlayer(goal, scoreboard, rb, playArea);
         player.OnScore += () => ResetGamePositions();

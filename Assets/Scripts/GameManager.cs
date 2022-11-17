@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public static GameManager Instance
     {
         get
@@ -48,7 +47,6 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
 
     public const int MainSceneIndex = 3;
     public const int SettingsSceneIndex = 2;
@@ -61,6 +59,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
+#if UNITY_STANDALONE
+        Application.targetFrameRate = 50;
+#endif
     }
     public void SwitchToGameScene(float loadSceneDelay)
     {

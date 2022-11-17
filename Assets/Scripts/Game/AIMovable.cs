@@ -29,14 +29,14 @@ public class AIMovable : RigidBodyMovable
         //if puck is far, move slowly and only on x axis
         if (GameController.Instance.puck.Position.z < movementBounderies.MinZ)
         {
-            Debug.Log("Far");
+           // Debug.Log("Far");
             targetSpeed = maxSpeed * Random.Range(0.1f, 0.3f);
             targetPosition = InitPos;
             targetPosition.x = GameController.Instance.puck.Position.x;
         }
         else //puck is near, move directly to the puck
         {
-            Debug.Log("Near");
+           // Debug.Log("Near");
             targetSpeed = Random.Range(maxSpeed * 0.4f, maxSpeed);
             targetPosition = InitPos;
             targetPosition.x = GameController.Instance.puck.Position.x;
