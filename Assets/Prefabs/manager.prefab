@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 88733055204582067}
   - component: {fileID: 88733055204582064}
   - component: {fileID: 88733055204582065}
+  - component: {fileID: 4524744913889305884}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -59,3 +60,17 @@ MonoBehaviour:
   hockeyTable: {fileID: 139860, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
   pad1: {fileID: 166526, guid: 28e55cfdc1bf26143b22a0fc5c541f4c, type: 3}
   pad2: {fileID: 115470, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}
+  reffrences: {fileID: 4524744913889305884}
+--- !u!114 &4524744913889305884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88733055204582066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8292a6d437fa30d42925acc0a07c58cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncyMaterialRef: {fileID: 13400000, guid: 5adb9c991d0758045972a89a69d11a64, type: 2}

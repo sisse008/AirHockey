@@ -12,11 +12,18 @@ public class PuckController : MonoBehaviour
     public bool isMoving { get; private set; }
     public Vector3 Position => rb.position;
 
+    public float radius { get; private set; } = 0.9292f / 2f;
+
     AudioSource puckAudioSource;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         puckAudioSource = GetComponent<AudioSource>();
+       
+    }
+    private void Start()
+    {
+        radius = transform.localScale.x / 2;
     }
     public void Stop()
     {

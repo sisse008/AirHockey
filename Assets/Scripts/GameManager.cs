@@ -53,12 +53,16 @@ public class GameManager : MonoBehaviour
     public const int SlectionSceneIndex = 1;
     public const int MenuSceneIndex = 0;
 
+    public AssetRefferenceHelper reffrences;
+
     private void Awake()
     {
         if(instance && instance != this)
             Destroy(gameObject);
         
         DontDestroyOnLoad(gameObject);
+
+        reffrences = GetComponent<AssetRefferenceHelper>();
     }
     private void Start()
     {

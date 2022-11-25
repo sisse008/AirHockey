@@ -6,7 +6,7 @@ public class AIMovable : RigidBodyMovable
 {
 
     public float threshHoldPuckDistance = 30f;
-    public float maxSpeed = 20f;
+    public float maxSpeed = 13f;
 
     private Vector3 InitPos;
     Vector3 targetPosition = new Vector3();
@@ -16,6 +16,11 @@ public class AIMovable : RigidBodyMovable
     {
         InitPos = rb.position;
        // StartCoroutine(AIMove()); obselete
+    }
+
+    private void OnEnable()
+    {
+        GetComponent<MeshCollider>().material = GameManager.Instance.reffrences.bouncyMaterialRef;
     }
 
     private void FixedUpdate()
