@@ -6,7 +6,7 @@ public class AIMovable : RigidBodyMovable
 {
 
     public float threshHoldPuckDistance = 30f;
-    public float maxSpeed = 15f;
+    public float maxSpeed = 13f;
 
     private Vector3 InitPos;
     Vector3 targetPosition = new Vector3();
