@@ -67,8 +67,7 @@ Shader "Custom/Outline Fill" {
         float3 viewNormal = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, normal));
 
         output.position = UnityViewToClipPos(viewPosition + viewNormal * -viewPosition.z * _OutlineWidth / 1000.0);
-      //  output.color = _OutlineColor;
-        output.color = pow(_OutlineColor, 2.2);
+        output.color = _OutlineColor;
 
         return output;
       }

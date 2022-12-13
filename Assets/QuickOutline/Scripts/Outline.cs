@@ -77,9 +77,6 @@ public class Outline : MonoBehaviour {
   private Renderer[] renderers;
   private Material outlineMaskMaterial;
   private Material outlineFillMaterial;
- 
-
-    private Dictionary<Renderer, Material[]> originalMaterial = new Dictionary<Renderer, Material[]>();
 
   private bool needsUpdate;
 
@@ -87,9 +84,6 @@ public class Outline : MonoBehaviour {
 
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
-
-        foreach (Renderer r in renderers)
-            originalMaterial[r] = r.materials;
 
     // Instantiate outline materials
     outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
@@ -105,38 +99,19 @@ public class Outline : MonoBehaviour {
     needsUpdate = true;
   }
 
-
-    public void ActivateOutline()
+  void OnEnable() 
     {
-        foreach (var renderer in renderers)
-        {
+    foreach (var renderer in renderers) {
 
-            // Append outline shaders
-            var materials = renderer.sharedMaterials.ToList();
+      // Append outline shaders
+      var materials = renderer.sharedMaterials.ToList();
 
-            materials.Add(outlineMaskMaterial);
-            materials.Add(outlineFillMaterial);
+      materials.Add(outlineMaskMaterial);
+      materials.Add(outlineFillMaterial);
 
-            renderer.materials = materials.ToArray();
-        }
+      renderer.materials = materials.ToArray();
     }
-
-    public void DeactivateOutline()
-    {
-        foreach (Renderer r in renderers)
-        {
-            /*
-            var materials = renderer.sharedMaterials.ToList();
-
-            materials.Remove(outlineMaskMaterial);
-            materials.Remove(outlineFillMaterial);
-
-            renderer.materials = materials.ToArray();
-            */
-            r.materials = originalMaterial[r];
-           
-        }
-    }
+  }
 
   void OnValidate() {
 
@@ -163,7 +138,18 @@ public class Outline : MonoBehaviour {
     }
   }
 
- 
+  void OnDisable() {
+    foreach (var renderer in renderers) {
+
+      // Remove outline shaders
+      var materials = renderer.sharedMaterials.ToList();
+
+      materials.Remove(outlineMaskMaterial);
+      materials.Remove(outlineFillMaterial);
+
+      renderer.materials = materials.ToArray();
+    }
+  }
 
   void OnDestroy() {
 

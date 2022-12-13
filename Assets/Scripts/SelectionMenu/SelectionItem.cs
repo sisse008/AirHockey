@@ -28,6 +28,8 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     protected virtual void OnEnable()
     {
         selected = null;
+        base.OnEnable();
+
     }
 
     public bool IsEqual(SelectionItem item)
