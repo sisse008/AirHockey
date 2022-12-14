@@ -9,13 +9,13 @@ using UnityEngine;
 public class Highlightable : MonoBehaviour, IHighlightable
 {
     //TODO: outline should be attached to renderer that highlights
-    public Outline outline;
+    public DSOutline outline;
     bool highlighted;
     protected virtual void Start()
     {
       
         if(outline == null)
-            outline = GetComponent<Outline>();  
+            outline = GetComponent<DSOutline>();  
         outline.OutlineColor = new Color(0,255,0,255);
         outline.OutlineWidth = 8;
         highlighted = false;
