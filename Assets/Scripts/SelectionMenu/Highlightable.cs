@@ -14,6 +14,8 @@ public class Highlightable : MonoBehaviour, IHighlightable
     protected virtual void Start()
     {
       
+        if(outline == null)
+            outline = GetComponent<Outline>();  
         outline.OutlineColor = new Color(0,255,0,255);
         outline.OutlineWidth = 8;
         highlighted = false;
