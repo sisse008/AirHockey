@@ -32,14 +32,6 @@ public class DSOutline : MonoBehaviour {
     }
   }
 
-  public Color OutlineColor {
-    get { return outlineColor; }
-    set {
-      outlineColor = value;
-      needsUpdate = true;
-    }
-  }
-
   public float OutlineWidth {
     get { return outlineWidth; }
     set {
@@ -285,10 +277,7 @@ public class DSOutline : MonoBehaviour {
   }
 
   void UpdateMaterialProperties() {
-
-    // Apply properties according to mode
-    outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
-
+      
     switch (outlineMode) {
       case Mode.OutlineAll:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);

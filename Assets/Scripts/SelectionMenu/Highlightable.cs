@@ -16,7 +16,7 @@ public class Highlightable : MonoBehaviour, IHighlightable
       
         if(outline == null)
             outline = GetComponent<DSOutline>();  
-        outline.OutlineColor = new Color(0,255,0,255);
+       
         outline.OutlineWidth = 8;
         highlighted = false;
     }
