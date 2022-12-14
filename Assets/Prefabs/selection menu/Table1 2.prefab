@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66da692976b7b494f9b4ad4f1f07445c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
+  outline: {fileID: -8640291016435069377}
   gameItem: {fileID: 161100, guid: 5c1cd3058be99514b975ff0b747c7d28, type: 3}
   id: 1
 --- !u!114 &-8640291016435069377

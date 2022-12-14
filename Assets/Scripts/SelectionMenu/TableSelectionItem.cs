@@ -26,7 +26,7 @@ public class TableSelectionItem : SelectionItem
     {
         if (!selectable)
             return;
-        selected = this;
+        currentlySelected = this;
         OnTableSelected?.Invoke(this);
         base.OnPointerDown(eventData);  
     }

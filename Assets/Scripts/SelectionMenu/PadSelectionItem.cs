@@ -27,7 +27,7 @@ public class PadSelectionItem : SelectionItem
     {
         if (!selectable)
             return;
-        selected = this;
+        currentlySelected = this;
         OnPadSelected?.Invoke(this);
         base.OnPointerDown(eventData);
     }

@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66da692976b7b494f9b4ad4f1f07445c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
+  outline: {fileID: -8678833593132247649}
   gameItem: {fileID: 139860, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
   id: 0
 --- !u!114 &-8678833593132247649

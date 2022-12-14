@@ -14,7 +14,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     //TODO: find a better way to calculate distance from from camera threshhold
     protected bool selectable => (transform.position - SelectionMenuController.selectionCamera.transform.position).magnitude < 101f;
 
-    public static SelectionItem selected;
+    public static SelectionItem currentlySelected;
 
 
     private AudioSource selectedSound;
@@ -27,7 +27,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
 
     protected virtual void OnEnable()
     {
-        selected = null;
+        currentlySelected = null;
     }
 
     public bool IsEqual(SelectionItem item)
@@ -50,7 +50,7 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(selected != this)
+        if(currentlySelected != this)
             UnHighlight();
     }
 

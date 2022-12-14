@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 1598825100233338651}
   - component: {fileID: 3464699002414696099}
   - component: {fileID: -8807820013392324481}
-  - component: {fileID: -7204609881129625121}
   - component: {fileID: 3118543114633522509}
   m_Layer: 0
   m_Name: SketchfabTableselection
@@ -136,27 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66da692976b7b494f9b4ad4f1f07445c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
+  outline: {fileID: 191331787887594228}
   gameItem: {fileID: 1961996747056968327, guid: a360cd9dcf48e8142a4ff8acf48a6d74, type: 3}
   id: 12
---- !u!114 &-7204609881129625121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961996747056968327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 1, b: 0.15852618, a: 1}
-  outlineWidth: 8.05
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!82 &3118543114633522509
 AudioSource:
   m_ObjectHideFlags: 0
@@ -264,6 +245,7 @@ GameObject:
   - component: {fileID: 753992155698826097}
   - component: {fileID: 273023865159101727}
   - component: {fileID: 3597306977977834209}
+  - component: {fileID: 191331787887594228}
   m_Layer: 0
   m_Name: AirHockeyTable
   m_TagString: Untagged
@@ -337,3 +319,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &191331787887594228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991833253952952136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 1, b: 0.15852618, a: 1}
+  outlineWidth: 8.05
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
