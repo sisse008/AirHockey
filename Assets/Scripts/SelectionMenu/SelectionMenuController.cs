@@ -26,12 +26,7 @@ public class SelectionMenuController : MonoBehaviour
         selectionCamera = Camera.main;
     }
 
-    private void OnEnable()
-    {
-        //TODO: remove from here. package should be independent of game manager
-        TableSelectionItem.OnTableSelected += (item) => { GameManager.Instance.hockeyTable = item.gameItem; };
-        PadSelectionItem.OnPadSelected += (item) => { GameManager.Instance.pad1 = item.gameItem; };
-    }
+  
     private void Start()
     {
         tableSelectionPath.Init(TableSelectionItemsData.SelectionItems);

@@ -4,31 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class PadSelectionItem : SelectionItem
+public class PadSelectionItem : TSelectionItem<PadController>
 {
-    public static UnityAction<SelectionItem> OnPadSelected;
-
-    protected override void OnEnable()
-    {
-
-        OnPadSelected += PadSelected;
-        base.OnEnable();
-    }
-    private void OnDisable()
-    {
-        OnPadSelected -= PadSelected;
-    }
-
-    void PadSelected(SelectionItem item)
-    {
-        if (item != this) { UnHighlight(); }
-    }
-    public override void OnPointerDown(PointerEventData eventData)
-    {
-        if (!selectable)
-            return;
-        currentlySelected = this;
-        OnPadSelected?.Invoke(this);
-        base.OnPointerDown(eventData);
-    }
+  
 }
