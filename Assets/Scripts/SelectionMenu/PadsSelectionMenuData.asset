@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3a4b105d5ad3e42a7c7e26703d6b58, type: 3}
   m_Name: PadsSelectionMenuData
   m_EditorClassIdentifier: 
-  ItemGroupName: 
+  ItemGroupName: Pads Selection
   SelectionItems:
   - {fileID: 166526, guid: 726d606d64a709140bdae0a66f945574, type: 3}
   - {fileID: 115470, guid: edfd4d5c0ef6a99478c25f0c90cde7a5, type: 3}

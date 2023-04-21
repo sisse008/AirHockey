@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectionMenuController : MonoBehaviour
 {
-
-    [SerializeField] SelectionPath[] selectionPaths;
-    [SerializeField] SelectionPath tableSelectionPath;
-    [SerializeField] SelectionPath padsSelectionPath;
+  
+    public SelectionMenuUIController menuUIController;
 
     static Camera selectionCamera;
     public static Vector3 CamPosition => selectionCamera.transform.position;
 
+    [SerializeField] SelectionData[] selectionData;
 
-    [SerializeField] SelectionData TableSelectionItemsData;
-    [SerializeField] SelectionData PadsSelectionItemsData;
-
+    public Dictionary<SelectionData, SelectionPath> itemsSelectionMenuData = 
+        new Dictionary<SelectionData, SelectionPath>();   
+    
 
     private UnityAction<bool> rotatePath;
 
@@ -31,11 +31,19 @@ public class SelectionMenuController : MonoBehaviour
   
     private void Start()
     {
-     
-        tableSelectionPath.Init(TableSelectionItemsData.SelectionItems);
-        padsSelectionPath.Init(PadsSelectionItemsData.SelectionItems);
 
-        ActivateTableSelectionPath();
+        foreach (SelectionData _selectionData in selectionData)
+        {
+            SelectionPath pathBuilder = Instantiate(GameManager.Instance.reffrences.pathBuilder);
+            pathBuilder.Init(_selectionData.SelectionItems);
+
+            itemsSelectionMenuData.Add(_selectionData, pathBuilder);
+
+            menuUIController.AddButton(_selectionData.ItemGroupName, 
+                () => ActivateSelectionPath(pathBuilder));
+        }
+
+        ActivateSelectionPath(itemsSelectionMenuData[selectionData[0]]);
     }
 
     public void NextItem(bool clockwise)
@@ -43,27 +51,15 @@ public class SelectionMenuController : MonoBehaviour
         rotatePath?.Invoke(clockwise);
     }
 
-    public void ActivateTableSelection()
+ 
+    void ActivateSelectionPath(SelectionPath activate)
     {
-        ActivateTableSelectionPath();
-    }
-    void ActivateTableSelectionPath()
-    {
-        tableSelectionPath.gameObject.SetActive(true);
-        padsSelectionPath.gameObject.SetActive(false);
-
-        rotatePath = tableSelectionPath.NextItem;
-    }
-    public void ActivatePadSelection()
-    {
-        ActivatePadSelectionPath();
-    }
-
-    void ActivatePadSelectionPath()
-    {
-        tableSelectionPath.gameObject.SetActive(false);
-        padsSelectionPath.gameObject.SetActive(true);
-
-        rotatePath = padsSelectionPath.NextItem;
+        foreach (SelectionPath path in itemsSelectionMenuData.Values)
+        {
+            path.gameObject.SetActive(false);
+        }
+       
+        activate.gameObject.SetActive(true);
+        rotatePath = activate.NextItem;
     }
 }

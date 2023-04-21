@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3a4b105d5ad3e42a7c7e26703d6b58, type: 3}
   m_Name: TablesSelectionMenuData
   m_EditorClassIdentifier: 
-  ItemGroupName: 
+  ItemGroupName: Tables Selection
   SelectionItems:
   - {fileID: 1961996747056968327, guid: 2431d03f84495f54882975b4b6548fff, type: 3}
   - {fileID: 139860, guid: ae8e03400798964459f1b20b1eabb2f4, type: 3}

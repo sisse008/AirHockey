@@ -11,8 +11,6 @@ public class SelectionPath : MonoBehaviour
     [SerializeField] 
     float switchTimeInSeconds;
 
- 
-
     private List<Vector3> positions;
 
     private int numOfItems;
