@@ -20,7 +20,7 @@ public class SelectionPath : MonoBehaviour
 
     bool rotating = false;
 
-    public void Init(List<Selectable> items)
+    public void Init<T>(List<SelectionItem<T>> items)
     {
         numOfItems = items.Count;
         positions = GetItemsPositionsOnCyclicPath();
@@ -34,11 +34,11 @@ public class SelectionPath : MonoBehaviour
         transform.position = new Vector3(camPos.x, camPos.y- 45f, camPos.z + radius + 90f);
     }
 
-    void InstantiateItems(List<Selectable> items)
+    void InstantiateItems<T>(List<SelectionItem<T>> items)
     {
         for (int i = 0; i < numOfItems; i++)
         {
-            Selectable item = Instantiate(items[i], positions[i], items[i].transform.rotation, transform);
+            Selectable<T> item = Instantiate(items[i], positions[i], items[i].transform.rotation, transform);
         }
     }
 

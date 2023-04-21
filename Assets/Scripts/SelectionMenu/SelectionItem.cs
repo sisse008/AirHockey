@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class SelectionItem<T> : Selectable
+public class SelectionItem<T> : Selectable<T>
 {
-    public static UnityAction<Selectable> OnObjectSelected;
+    public static UnityAction<SelectionItem<T>> OnObjectSelected;
 
 
     protected override void Awake()
@@ -26,7 +26,7 @@ public class SelectionItem<T> : Selectable
         OnObjectSelected -= ObjectSelected;
     }
 
-    void ObjectSelected(Selectable item)
+    void ObjectSelected(Selectable<T> item)
     {
         if (item != this) { UnHighlight(); }
     }

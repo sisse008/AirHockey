@@ -5,10 +5,23 @@ using UnityEngine;
 public class SelectionSceneManager : MonoBehaviour
 {
 
+    void SetSelectTable(SelectionItem<TableController> selectedItem) =>
+        GameManager.Instance.hockeyTable = selectedItem.Object;
+
+    void SetSelectPad(SelectionItem<PadController> selectedItem) =>
+       GameManager.Instance.pad1 = selectedItem.Object;
+
+
     private void OnEnable()
     {
-        TableSelectionItem.OnObjectSelected += (item) => { GameManager.Instance.hockeyTable = item.gameItem; };
-        PadSelectionItem.OnObjectSelected += (item) => { GameManager.Instance.pad1 = item.gameItem; };
+        TableSelectionItem.OnObjectSelected += SetSelectTable;
+        PadSelectionItem.OnObjectSelected += SetSelectPad;
+    }
+
+    private void OnDisable()
+    {
+        TableSelectionItem.OnObjectSelected -= SetSelectTable;
+        PadSelectionItem.OnObjectSelected -= SetSelectPad;
     }
 
     public void BacktoMainMenuScene()

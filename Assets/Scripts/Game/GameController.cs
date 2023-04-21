@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public PlayerController player1;
     public PlayerController player2;
     public PuckController puck;
-    public GameObject table;
+    public TableController table;
 
     public GoalController goal1;
     public GoalController goal2;
@@ -48,21 +48,21 @@ public class GameController : MonoBehaviour
         NewGame();
     }
 
-    PlayerController InitNewPlayer(GameObject pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard, 
+    PlayerController InitNewPlayer(PadController pad, Transform initPositionTransform, GoalController goal, ScoreboardController scoreboard, 
         PlayAreaController playArea, RuntimeInputHelper.InputType.InputTypeEnum inputType, bool isAI = false)
     {
         Quaternion q = Quaternion.identity;
         q.eulerAngles = new Vector3(270, 0, 0);
 
-        GameObject player_go = Instantiate(pad, initPositionTransform.position, q);
+        PadController player_go = Instantiate(pad, initPositionTransform.position, q);
 
-        PlayerController player = Tools.GetComponent<PlayerController>(player_go);
+        PlayerController player = Tools.GetComponent<PlayerController>(player_go.gameObject);
 
         RigidBodyMovable rb;
         if(isAI == false)
-            rb = Tools.GetComponent<RigidBodyMovable>(player_go);
+            rb = Tools.GetComponent<RigidBodyMovable>(player_go.gameObject);
         else
-            rb = Tools.GetComponent<AIMovable>(player_go);
+            rb = Tools.GetComponent<AIMovable>(player_go.gameObject);
 
         rb.originalPosition = initPositionTransform;
         rb.inputType = isAI? RuntimeInputHelper.InputType.InputTypeEnum.None : inputType;

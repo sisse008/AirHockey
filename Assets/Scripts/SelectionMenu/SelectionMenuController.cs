@@ -14,8 +14,8 @@ public class SelectionMenuController : MonoBehaviour
     public static Vector3 CamPosition => selectionCamera.transform.position;
 
 
-    [SerializeField] SelectionData TableSelectionItemsData;
-    [SerializeField] SelectionData PudsSelectionItemsData;
+    [SerializeField] SelectionData<TableController> TableSelectionItemsData;
+    [SerializeField] SelectionData<PadController> PadsSelectionItemsData;
 
 
     private UnityAction<bool> rotatePath;
@@ -30,7 +30,7 @@ public class SelectionMenuController : MonoBehaviour
     private void Start()
     {
         tableSelectionPath.Init(TableSelectionItemsData.SelectionItems);
-        padsSelectionPath.Init(PudsSelectionItemsData.SelectionItems);
+        padsSelectionPath.Init(PadsSelectionItemsData.SelectionItems);
 
         ActivateTableSelectionPath();
     }

@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
-    public GameObject hockeyTable;
+    public TableController hockeyTable;
 
-    public GameObject pad1;
+    public PadController pad1;
  
-    public GameObject pad2;
+    public PadController pad2;
 
     public enum GameTypeEnum
     {

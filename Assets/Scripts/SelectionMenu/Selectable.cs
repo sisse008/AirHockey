@@ -4,23 +4,26 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public abstract class Selectable : Highlightable, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public abstract class Selectable<T> : Highlightable, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    public static UnityAction<Selectable> OnItemSelected;
+    public static UnityAction<T> OnItemSelected;
     public GameObject gameItem;
     public int id;
+    public T Object { get; private set; }
 
     //TODO: set selectable to true only when is displayed on screen
     //TODO: find a better way to calculate distance from from camera threshhold
     protected bool selectable => (transform.position - SelectionMenuController.CamPosition).magnitude < 101f;
 
-    public static Selectable currentlySelected;
+    public static Selectable<T> currentlySelected;
 
 
     private AudioSource selectedSound;
 
     protected override void Awake() 
     {
+        Object = GetComponent<T>();
+
         selectedSound = GetComponent<AudioSource>();
         base.Awake();
     }
@@ -30,7 +33,7 @@ public abstract class Selectable : Highlightable, IPointerEnterHandler, IPointer
         currentlySelected = null;
     }
 
-    public bool IsEqual(Selectable item)
+    public bool IsEqual(Selectable<T> item)
     {
         return item.id == id;
     }
@@ -45,7 +48,7 @@ public abstract class Selectable : Highlightable, IPointerEnterHandler, IPointer
             return;
 
         selectedSound.Play();
-        OnItemSelected?.Invoke(this);
+        OnItemSelected?.Invoke(Object);
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3a4b105d5ad3e42a7c7e26703d6b58, type: 3}
-  m_Name: Tables
+  m_Script: {fileID: 11500000, guid: f978809cd472b5d48b6471d7a0a64a48, type: 3}
+  m_Name: TableSelectionData
   m_EditorClassIdentifier: 
   SelectionItems:
   - {fileID: -8807820013392324481, guid: 2431d03f84495f54882975b4b6548fff, type: 3}

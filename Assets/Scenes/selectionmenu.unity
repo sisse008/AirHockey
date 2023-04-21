@@ -446,8 +446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableSelectionPath: {fileID: 155410346}
   padsSelectionPath: {fileID: 865153810}
-  TableSelectionItemsData: {fileID: 11400000, guid: 974b19af534c7504098d4d6ffe5deee7, type: 2}
-  PudsSelectionItemsData: {fileID: 11400000, guid: b3b32d2443a6fbd48a19fe245bff58ef, type: 2}
+  TableSelectionItemsData: {fileID: 11400000, guid: 1a3436de0ef026842808cb1afed43e9c, type: 2}
+  PadsSelectionItemsData: {fileID: 11400000, guid: 04c5bbfbf0ae1b24d88ad984d23e075b, type: 2}
 --- !u!4 &390192024
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,6 +1022,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 88733055204582065, guid: 8cb305daa7857874f9c66d14a6f583c7, type: 3}
+      propertyPath: pad1
+      value: 
+      objectReference: {fileID: 1033127025657286677, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}
+    - target: {fileID: 88733055204582065, guid: 8cb305daa7857874f9c66d14a6f583c7, type: 3}
+      propertyPath: pad2
+      value: 
+      objectReference: {fileID: 8799906236136906343, guid: 034b3666c662da34da2302d821eb806b, type: 3}
+    - target: {fileID: 88733055204582065, guid: 8cb305daa7857874f9c66d14a6f583c7, type: 3}
+      propertyPath: hockeyTable
+      value: 
+      objectReference: {fileID: -884639231201481084, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
     - target: {fileID: 88733055204582066, guid: 8cb305daa7857874f9c66d14a6f583c7, type: 3}
       propertyPath: m_Name
       value: manager

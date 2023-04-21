@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5973308070064937058}
   - component: {fileID: 2413868574671480730}
   - component: {fileID: -7325832204692626682}
+  - component: {fileID: 7007611405936499359}
   m_Layer: 0
   m_Name: PurplePad 1
   m_TagString: Untagged
@@ -32,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0.35975355, y: 0.1872759, z: 0.18727587, w: 0.8946691}
   m_LocalPosition: {x: 55.26, y: 50.83, z: 38.08}
   m_LocalScale: {x: 7, y: 7, z: 7}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +57,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -227,3 +230,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7007611405936499359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4541821fd3b61843b3ae5eba73d47b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
