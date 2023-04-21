@@ -7,9 +7,11 @@ using UnityEngine.EventSystems;
 public abstract class Selectable<T> : Highlightable, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public static UnityAction<T> OnItemSelected;
-    public GameObject gameItem;
+    [SerializeField] T gameItem;
+    public T Object => gameItem;
+
     public int id;
-    public T Object { get; private set; }
+    
 
     //TODO: set selectable to true only when is displayed on screen
     //TODO: find a better way to calculate distance from from camera threshhold
@@ -22,8 +24,6 @@ public abstract class Selectable<T> : Highlightable, IPointerEnterHandler, IPoin
 
     protected override void Awake() 
     {
-        Object = GetComponent<T>();
-
         selectedSound = GetComponent<AudioSource>();
         base.Awake();
     }

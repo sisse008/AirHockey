@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5038590545596632121}
   - component: {fileID: -7169809412122271566}
   - component: {fileID: -7548301799060509455}
-  - component: {fileID: -7939187799903953274}
   m_Layer: 0
   m_Name: YellowPad 1
   m_TagString: Untagged
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 0}
-  gameItem: {fileID: 129514, guid: e7f01c4ebbd17b946b2467bcced1d160, type: 3}
+  gameItem: {fileID: 2898024079019379886, guid: e7f01c4ebbd17b946b2467bcced1d160, type: 3}
   id: 11
 --- !u!114 &-7169809412122271566
 MonoBehaviour:
@@ -230,15 +229,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-7939187799903953274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4541821fd3b61843b3ae5eba73d47b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

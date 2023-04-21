@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -8125599105820528531}
   - component: {fileID: 4112161850313384456}
   - component: {fileID: 5061493713230184781}
-  - component: {fileID: -6946850934264383659}
   m_Layer: 0
   m_Name: BlackPad 1
   m_TagString: Untagged
@@ -113,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a0d5d949b572e4a91a35016b13fa4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
-  gameItem: {fileID: 166526, guid: 28e55cfdc1bf26143b22a0fc5c541f4c, type: 3}
+  outline: {fileID: 4112161850313384456}
+  gameItem: {fileID: 3617405050913113376, guid: 28e55cfdc1bf26143b22a0fc5c541f4c, type: 3}
   id: 2
 --- !u!114 &4112161850313384456
 MonoBehaviour:
@@ -230,15 +229,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6946850934264383659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4541821fd3b61843b3ae5eba73d47b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

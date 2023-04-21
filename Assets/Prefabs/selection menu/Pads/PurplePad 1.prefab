@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5973308070064937058}
   - component: {fileID: 2413868574671480730}
   - component: {fileID: -7325832204692626682}
-  - component: {fileID: 7007611405936499359}
   m_Layer: 0
   m_Name: PurplePad 1
   m_TagString: Untagged
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 0}
-  gameItem: {fileID: 193722, guid: 034b3666c662da34da2302d821eb806b, type: 3}
+  gameItem: {fileID: 8799906236136906343, guid: 034b3666c662da34da2302d821eb806b, type: 3}
   id: 9
 --- !u!114 &2413868574671480730
 MonoBehaviour:
@@ -230,15 +229,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7007611405936499359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4541821fd3b61843b3ae5eba73d47b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

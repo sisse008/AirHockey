@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Material))]
 [RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(DSOutline))]
 
 public class Highlightable : MonoBehaviour, IHighlightable
 {

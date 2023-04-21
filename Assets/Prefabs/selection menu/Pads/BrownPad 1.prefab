@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 65569764457737814}
   - component: {fileID: -685253649907215476}
   - component: {fileID: 4515299789842647043}
-  - component: {fileID: -1618139134610388939}
   m_Layer: 0
   m_Name: BrownPad 1
   m_TagString: Untagged
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 0}
-  gameItem: {fileID: 126428, guid: 4cf0dc858ba38524287d09387060935f, type: 3}
+  gameItem: {fileID: -4403491584909981664, guid: 4cf0dc858ba38524287d09387060935f, type: 3}
   id: 4
 --- !u!114 &-685253649907215476
 MonoBehaviour:
@@ -230,15 +229,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-1618139134610388939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4541821fd3b61843b3ae5eba73d47b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

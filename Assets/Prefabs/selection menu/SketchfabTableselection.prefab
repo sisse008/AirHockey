@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3464699002414696099}
   - component: {fileID: -8807820013392324481}
   - component: {fileID: 3118543114633522509}
-  - component: {fileID: -1651113705162252572}
+  - component: {fileID: 2378919908541808187}
   m_Layer: 0
   m_Name: SketchfabTableselection
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 191331787887594228}
-  gameItem: {fileID: 1961996747056968327, guid: a360cd9dcf48e8142a4ff8acf48a6d74, type: 3}
+  gameItem: {fileID: 5360996158489315151, guid: a360cd9dcf48e8142a4ff8acf48a6d74, type: 3}
   id: 12
 --- !u!82 &3118543114633522509
 AudioSource:
@@ -235,7 +235,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-1651113705162252572
+--- !u!114 &2378919908541808187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,9 +244,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961996747056968327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d6fcb3289ebef49a003544d4109376, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4991833253952952136
 GameObject:
   m_ObjectHideFlags: 0
