@@ -549,8 +549,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 390192023}
-        m_TargetAssemblyTypeName: SelectionMenuController, Assembly-CSharp
-        m_MethodName: ActivateTableSelection
+        m_TargetAssemblyTypeName: SelectionPathsTypeSwitch, Assembly-CSharp
+        m_MethodName: ActivateTableSelectionPath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -791,7 +791,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.2
+  m_fontSize: 62.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1275,8 +1275,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 390192023}
-        m_TargetAssemblyTypeName: SelectionMenuController, Assembly-CSharp
-        m_MethodName: ActivatePadSelection
+        m_TargetAssemblyTypeName: SelectionPathsTypeSwitch, Assembly-CSharp
+        m_MethodName: ActivatePadSelectionPath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.75
+  m_fontSize: 62.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

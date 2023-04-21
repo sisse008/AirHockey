@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectionMenuController : MonoBehaviour
 {
+
     [SerializeField] SelectionPath tableSelectionPath;
     [SerializeField] SelectionPath padsSelectionPath;
 
@@ -39,15 +40,24 @@ public class SelectionMenuController : MonoBehaviour
     {
         rotatePath?.Invoke(clockwise);
     }
-    public void ActivateTableSelectionPath()
+
+    public void ActivateTableSelection()
+    {
+        ActivateTableSelectionPath();
+    }
+    void ActivateTableSelectionPath()
     {
         tableSelectionPath.gameObject.SetActive(true);
         padsSelectionPath.gameObject.SetActive(false);
 
         rotatePath = tableSelectionPath.NextItem;
     }
+    public void ActivatePadSelection()
+    {
+        ActivatePadSelectionPath();
+    }
 
-    public void ActivatePadSelectionPath()
+    void ActivatePadSelectionPath()
     {
         tableSelectionPath.gameObject.SetActive(false);
         padsSelectionPath.gameObject.SetActive(true);

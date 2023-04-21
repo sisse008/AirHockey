@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public abstract class SelectionData<T> : ScriptableObject
 {
+    public string ItemGroupName;
 
     public List<SelectionItem<T>> SelectionItems;
     public int NumberOfItems => SelectionItems.Count;

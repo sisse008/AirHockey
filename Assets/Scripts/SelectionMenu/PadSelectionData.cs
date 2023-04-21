@@ -4,7 +4,6 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "SelectionMenuData", menuName = "ScriptableObjects/PadDataForSelectionMenu", order = 1)]
-
 public class PadSelectionData : SelectionData<PadController>
 {
    
