@@ -4,29 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public abstract class SelectionData<T> : ScriptableObject
+
+[CreateAssetMenu(fileName = "SelectionMenuData", menuName = "ScriptableObjects/DataForSelectionMenu", order =1)]
+public class SelectionData : ScriptableObject
 {
     public string ItemGroupName;
 
-    public List<SelectionItem<T>> SelectionItems;
+    public List<GameObject> SelectionItems;
     public int NumberOfItems => SelectionItems.Count;
 
-    public List<SelectionItem<T>> Items => new List<SelectionItem<T>>(SelectionItems);
-
-
-    public bool Contains(SelectionItem<T> item)
-    {
-        foreach (SelectionItem<T> _item in SelectionItems)
-            if (item.id == _item.id)
-                return true;
-        return false;
-    }
-    public SelectionItem<T> GetItem(int index)
-    {
-        if (index < NumberOfItems)
-            return SelectionItems[index];
-        return null;
-    }
+    public List<GameObject> Items => new List<GameObject>(SelectionItems);
 
 
 }

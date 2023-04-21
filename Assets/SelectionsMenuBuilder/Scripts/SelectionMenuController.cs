@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SelectionMenuController : MonoBehaviour
 {
 
+    [SerializeField] SelectionPath[] selectionPaths;
     [SerializeField] SelectionPath tableSelectionPath;
     [SerializeField] SelectionPath padsSelectionPath;
 
@@ -15,8 +16,8 @@ public class SelectionMenuController : MonoBehaviour
     public static Vector3 CamPosition => selectionCamera.transform.position;
 
 
-    [SerializeField] SelectionData<TableController> TableSelectionItemsData;
-    [SerializeField] SelectionData<PadController> PadsSelectionItemsData;
+    [SerializeField] SelectionData TableSelectionItemsData;
+    [SerializeField] SelectionData PadsSelectionItemsData;
 
 
     private UnityAction<bool> rotatePath;
@@ -30,6 +31,7 @@ public class SelectionMenuController : MonoBehaviour
   
     private void Start()
     {
+     
         tableSelectionPath.Init(TableSelectionItemsData.SelectionItems);
         padsSelectionPath.Init(PadsSelectionItemsData.SelectionItems);
 

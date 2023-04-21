@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3a4b105d5ad3e42a7c7e26703d6b58, type: 3}
+  m_Name: TablesSelectionMenuData
+  m_EditorClassIdentifier: 
+  ItemGroupName: 
+  SelectionItems:
+  - {fileID: 1961996747056968327, guid: 2431d03f84495f54882975b4b6548fff, type: 3}
+  - {fileID: 139860, guid: ae8e03400798964459f1b20b1eabb2f4, type: 3}
+  - {fileID: 161100, guid: 5ab115bf3e6af854c877226dc7f5f568, type: 3}
