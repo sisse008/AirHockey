@@ -29,9 +29,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 391.88583, y: 137.31503, z: -127.130196}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &88733055204582064
 MonoBehaviour:
@@ -57,9 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61ad46f800261b45a60f307d27d592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hockeyTable: {fileID: 139860, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
-  pad1: {fileID: 166526, guid: 28e55cfdc1bf26143b22a0fc5c541f4c, type: 3}
-  pad2: {fileID: 115470, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}
+  hockeyTable: {fileID: -884639231201481084, guid: 434dc6560b2c8b14588d1085b79c4460, type: 3}
+  pad1: {fileID: 1033127025657286677, guid: cddda4d44a2979f4b9b9ec7ba863e1b6, type: 3}
+  pad2: {fileID: 8799906236136906343, guid: 034b3666c662da34da2302d821eb806b, type: 3}
   reffrences: {fileID: 4524744913889305884}
 --- !u!114 &4524744913889305884
 MonoBehaviour:
