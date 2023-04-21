@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class SelectionMenuController : MonoBehaviour
 {
-    public SelectionPath tableSelectionPath;
-    public SelectionPath padsSelectionPath;
+    [SerializeField] SelectionPath tableSelectionPath;
+    [SerializeField] SelectionPath padsSelectionPath;
 
-    public static Camera selectionCamera;
+    static Camera selectionCamera;
+    public static Vector3 CamPosition => selectionCamera.transform.position;
 
 
-    public SelectionData TableSelectionItemsData;
-    public SelectionData PudsSelectionItemsData;
+    [SerializeField] SelectionData TableSelectionItemsData;
+    [SerializeField] SelectionData PudsSelectionItemsData;
 
 
     private UnityAction<bool> rotatePath;
@@ -27,6 +28,7 @@ public class SelectionMenuController : MonoBehaviour
 
     private void OnEnable()
     {
+        //TODO: remove from here. package should be independent of game manager
         TableSelectionItem.OnTableSelected += (item) => { GameManager.Instance.hockeyTable = item.gameItem; };
         PadSelectionItem.OnPadSelected += (item) => { GameManager.Instance.pad1 = item.gameItem; };
     }
@@ -56,15 +58,5 @@ public class SelectionMenuController : MonoBehaviour
         padsSelectionPath.gameObject.SetActive(true);
 
         rotatePath = padsSelectionPath.NextItem;
-    }
-
-    public void BacktoMainMenuScene()
-    {
-        GameManager.Instance.SwitchToMainMenuScene(0f);
-    }
-
-    public void StartNewGame()
-    {
-        GameManager.Instance.SwitchToGameScene(0.2f);
     }
 }

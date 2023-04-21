@@ -10,9 +10,9 @@ public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHa
     public GameObject gameItem;
     public int id;
 
-    //TODO: set selectable to true only when is desplayed on screen
+    //TODO: set selectable to true only when is displayed on screen
     //TODO: find a better way to calculate distance from from camera threshhold
-    protected bool selectable => (transform.position - SelectionMenuController.selectionCamera.transform.position).magnitude < 101f;
+    protected bool selectable => (transform.position - SelectionMenuController.CamPosition).magnitude < 101f;
 
     public static SelectionItem currentlySelected;
 

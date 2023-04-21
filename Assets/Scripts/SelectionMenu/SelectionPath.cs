@@ -30,7 +30,7 @@ public class SelectionPath : MonoBehaviour
 
     void ResetPosition()
     {
-        Vector3 camPos = SelectionMenuController.selectionCamera.transform.position;
+        Vector3 camPos = SelectionMenuController.CamPosition;
         transform.position = new Vector3(camPos.x, camPos.y- 45f, camPos.z + radius + 90f);
     }
 
