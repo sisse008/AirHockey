@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class SelectionMenuController : MonoBehaviour
 {
-  
+
+    public SelectionPath pathBuilderObject;
+
     public SelectionMenuUIController menuUIController;
 
     static Camera selectionCamera;
@@ -34,7 +36,7 @@ public class SelectionMenuController : MonoBehaviour
 
         foreach (SelectionData _selectionData in selectionData)
         {
-            SelectionPath pathBuilder = Instantiate(GameManager.Instance.reffrences.pathBuilder);
+            SelectionPath pathBuilder = Instantiate(pathBuilderObject);
             pathBuilder.Init(_selectionData.SelectionItems);
 
             itemsSelectionMenuData.Add(_selectionData, pathBuilder);

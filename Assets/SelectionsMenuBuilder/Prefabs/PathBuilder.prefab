@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5234489828206814964}
   - component: {fileID: 5234489828206814965}
   m_Layer: 0
-  m_Name: selection path
+  m_Name: PathBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

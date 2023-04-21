@@ -5,5 +5,4 @@ using UnityEngine;
 public class AssetRefferenceHelper : MonoBehaviour
 {
     public PhysicMaterial bouncyMaterialRef;
-    public SelectionPath pathBuilder;
 }
