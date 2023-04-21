@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class PadSelectionItem : TSelectionItem<PadController>
+public class PadSelectionItem : SelectionItem<PadController>
 {
   
 }

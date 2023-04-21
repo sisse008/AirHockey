@@ -8,20 +8,20 @@ using UnityEngine.UI;
 public class SelectionData : ScriptableObject
 {
 
-    public List<SelectionItem> SelectionItems;
+    public List<Selectable> SelectionItems;
     public int NumberOfItems => SelectionItems.Count;
 
-    public List<SelectionItem> Items => new List<SelectionItem>(SelectionItems);
+    public List<Selectable> Items => new List<Selectable>(SelectionItems);
 
 
-    public bool Contains(SelectionItem item)
+    public bool Contains(Selectable item)
     {
-        foreach (SelectionItem _item in SelectionItems)
+        foreach (Selectable _item in SelectionItems)
             if (item.id == _item.id)
                 return true;
         return false;
     }
-    public SelectionItem GetItem(int index)
+    public Selectable GetItem(int index)
     {
         if (index < NumberOfItems)
             return SelectionItems[index];

@@ -4,60 +4,38 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class SelectionItem : Highlightable, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class SelectionItem<T> : Selectable
 {
-    public static UnityAction<SelectionItem> OnItemSelected;
-    public GameObject gameItem;
-    public int id;
-
-    //TODO: set selectable to true only when is displayed on screen
-    //TODO: find a better way to calculate distance from from camera threshhold
-    protected bool selectable => (transform.position - SelectionMenuController.CamPosition).magnitude < 101f;
-
-    public static SelectionItem currentlySelected;
+    public static UnityAction<Selectable> OnObjectSelected;
 
 
-    private AudioSource selectedSound;
-
-    protected override void Awake() 
+    protected override void Awake()
     {
-        selectedSound = GetComponent<AudioSource>();
+        gameObject.AddComponent<Rotate>();
+
         base.Awake();
+
+    }
+    protected override void OnEnable()
+    {
+        OnObjectSelected += ObjectSelected;
+        base.OnEnable();
+    }
+    private void OnDisable()
+    {
+        OnObjectSelected -= ObjectSelected;
     }
 
-    protected virtual void OnEnable()
+    void ObjectSelected(Selectable item)
     {
-        currentlySelected = null;
+        if (item != this) { UnHighlight(); }
     }
-
-    public bool IsEqual(SelectionItem item)
-    {
-        return item.id == id;
-    }
-    public virtual void OnPointerEnter(PointerEventData eventData)
-    {
-        if (selectable)
-            Highlight();
-    }
-    public virtual void OnPointerDown(PointerEventData eventData)
+    public override void OnPointerDown(PointerEventData eventData)
     {
         if (!selectable)
             return;
-
-        selectedSound.Play();
-        OnItemSelected?.Invoke(this);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if(currentlySelected != this)
-            UnHighlight();
-    }
-
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        transform.Rotate(0, 1.5f, 0, Space.Self);
+        currentlySelected = this;
+        OnObjectSelected?.Invoke(this);
+        base.OnPointerDown(eventData);
     }
 }
