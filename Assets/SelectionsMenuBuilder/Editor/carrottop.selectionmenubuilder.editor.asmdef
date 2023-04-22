@@ -1,0 +1,16 @@
+{
+    "name": "carrottop.selectionmenubuilder.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a08387bef25d59d419403383e9c6583a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

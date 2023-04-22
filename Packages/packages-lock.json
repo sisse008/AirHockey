@@ -190,6 +190,12 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.selectionscenebuilder": {
+      "version": "file:SelectionSceneBuilder",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.services.core": {
       "version": "1.6.0",
       "depth": 1,

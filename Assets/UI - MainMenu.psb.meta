@@ -94,7 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: discord
+  - name: UI - MainMenu_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -105,7 +105,7 @@ ScriptedImporter:
       y: 1433
       width: 514
       height: 394
-    spriteID: 9d054704067cee748967f350773545fc
+    spriteID: c9eb528eb6db064469b313c6c9c95196
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -114,50 +114,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 1433}
-    spritePosition: {x: 1748, y: 95}
-  - name: instagram
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 896
-      y: 1468
-      width: 435
-      height: 436
-    spriteID: 90e1864dbd854a54b915e9c000914f33
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 896, y: 1468}
-    spritePosition: {x: 2341, y: 74}
-  - name: twitter
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 896
-      y: 1056
-      width: 498
-      height: 404
-    spriteID: cc430fea1e870a44595c93c286209abb
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 896, y: 1056}
-    spritePosition: {x: 2869, y: 90}
-  - name: Handle
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -168,7 +126,7 @@ ScriptedImporter:
       y: 1433
       width: 282
       height: 282
-    spriteID: 7303ef8d9adadcb44bc77baa3e0b5011
+    spriteID: f20b8c7e5651ffa458e9341311632272
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -176,9 +134,30 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 524, y: 1432}
-    spritePosition: {x: 1026, y: 73}
-  - name: Background
+    uvTransform: {x: 526, y: 1433}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 1468
+      width: 435
+      height: 436
+    spriteID: f20ee98a80ae0194988243480f81b3f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 1468}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -189,7 +168,7 @@ ScriptedImporter:
       y: 4
       width: 884
       height: 1421
-    spriteID: 8ead3e5b9c8ad6348856d53ce2a5d05c
+    spriteID: e6644cc77b4bc154c9bed9a8559edfe4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -197,9 +176,30 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2, y: 3}
-    spritePosition: {x: 49, y: 62}
-  - name: arrow
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 1056
+      width: 498
+      height: 404
+    spriteID: 9f72ae9eaa6512d499d6980bb271e440
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 1056}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -210,7 +210,7 @@ ScriptedImporter:
       y: 1056
       width: 526
       height: 310
-    spriteID: 1e62f0c415405f44a83ce0bdd5d83dba
+    spriteID: 427ea7871772eb144b6289f97774e33c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,71 +219,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 1402, y: 1056}
-    spritePosition: {x: 1007, y: 464}
-  - name: Button4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 896
-      y: 4
-      width: 1079
-      height: 255
-    spriteID: a5e51b7e07d12544f89a029752fe3c6b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 894, y: 3}
-    spritePosition: {x: 2185, y: 840}
-  - name: Button3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 896
-      y: 267
-      width: 981
-      height: 255
-    spriteID: bd9487dbf74f6ca4bb22027dab9a4f2a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 894, y: 266}
-    spritePosition: {x: 2260, y: 1171}
-  - name: Button2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 896
-      y: 530
-      width: 981
-      height: 255
-    spriteID: 6dfe52050b7e26742b848686b146598d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 894, y: 529}
-    spritePosition: {x: 2260, y: 1483}
-  - name: Button
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -294,7 +231,7 @@ ScriptedImporter:
       y: 793
       width: 981
       height: 255
-    spriteID: 8f27768a906e8ed4d9198778667bbfd2
+    spriteID: a44b076be7a9b204fb2bcdc6eb0a25dd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -302,8 +239,71 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 894, y: 792}
-    spritePosition: {x: 2260, y: 1795}
+    uvTransform: {x: 896, y: 793}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 530
+      width: 981
+      height: 255
+    spriteID: 0eb3e665fe64fe744b9faa8f1890d017
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 530}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 267
+      width: 981
+      height: 255
+    spriteID: c44a3f0578d323a41b3064e4276464f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 267}
+    spritePosition: {x: 0, y: 0}
+  - name: UI - MainMenu_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 4
+      width: 1079
+      height: 255
+    spriteID: 93c3cc046b680064aa364f536129deec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 4}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []

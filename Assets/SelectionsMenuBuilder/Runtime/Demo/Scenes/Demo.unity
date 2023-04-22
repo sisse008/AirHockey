@@ -470,6 +470,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 625803356, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
+      propertyPath: styleColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625803356, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
+      propertyPath: styleColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 625803356, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
+      propertyPath: styleColor.r
+      value: 0.06170094
+      objectReference: {fileID: 0}
     - target: {fileID: 1436588271981866074, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -574,14 +586,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 390192023}
-    - target: {fileID: 1436588272903238657, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436588273815452472, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f0a6b0db74bb74f8932f8eabf2e9e1, type: 3}
