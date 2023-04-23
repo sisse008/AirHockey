@@ -20,6 +20,9 @@ public class SelectionSceneManager : MonoBehaviour
 
     private void OnDisable()
     {
+        //because the events are static, they do not die with the selection item object.
+        //if i dont unsubscribe for the event, they will hold on to this object after it dies.
+        //thats why static events are dangerous. must remember to unsubscribe.
         TableSelectionItem.OnObjectSelected -= SetSelectTable;
         PadSelectionItem.OnObjectSelected -= SetSelectPad;
     }
