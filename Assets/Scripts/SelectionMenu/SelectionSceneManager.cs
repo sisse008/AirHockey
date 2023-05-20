@@ -5,10 +5,10 @@ using UnityEngine;
 public class SelectionSceneManager : MonoBehaviour
 {
 
-    void SetSelectTable(SelectionItem<TableController> selectedItem) =>
+    void SetSelectTable(SelectionMenuItem<TableController> selectedItem) =>
         GameManager.Instance.hockeyTable = selectedItem.Object;
 
-    void SetSelectPad(SelectionItem<PadController> selectedItem) =>
+    void SetSelectPad(SelectionMenuItem<PadController> selectedItem) =>
        GameManager.Instance.pad1 = selectedItem.Object;
 
 

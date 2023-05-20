@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class SelectionItem<T> : Selectable<T>
+public class SelectionMenuItem<T> : Selectable<T>
 {
-    public static UnityAction<SelectionItem<T>> OnObjectSelected;
+    public static UnityAction<SelectionMenuItem<T>> OnObjectSelected;
 
 
     protected override void Awake()

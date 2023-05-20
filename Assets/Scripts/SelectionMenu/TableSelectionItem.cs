@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class TableSelectionItem : SelectionItem<TableController>
+public class TableSelectionItem : SelectionMenuItem<TableController>
 {
    
 }
